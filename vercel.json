@@ -1,5 +1,4 @@
 {
-  "buildCommand": "cd brand-space-web && npm run build",
-  "outputDirectory": "brand-space-web/.next",
+  "root": "brand-space-web",
   "framework": "nextjs"
 }
