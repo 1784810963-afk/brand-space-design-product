@@ -11,7 +11,8 @@
       "Bash(Stop-Process -Force -ErrorAction SilentlyContinue)",
       "Bash(Start-Sleep -Seconds 2)",
       "Skill(faas-deploy)",
-      "Skill(faas-deploy:*)"
+      "Skill(faas-deploy:*)",
+      "Bash(git config:*)"
     ]
   }
 }

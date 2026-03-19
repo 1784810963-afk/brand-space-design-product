@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌设计空间产品 - 标准体系</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* 主容器 */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* 背景层 - 参考图作为背景 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1280"><defs><pattern id="shopPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="%23f5f5f5"/></pattern></defs><rect width="1920" height="1280" fill="%23f9f9f9"/></svg>');
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        /* Apple风格的渐变遮罩层 */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.25) 100%);
+            z-index: 2;
+        }
+
+        /* 顶部几何装饰 */
+        .geometric-top {
+            display: none;
+        }
+
+        /* 动画形状1 */
+        .shape-1 {
+            display: none;
+        }
+
+        /* 动画形状2 */
+        .shape-2 {
+            display: none;
+        }
+
+        /* 网格背景 */
+        .grid-overlay {
+            display: none;
+        }
+
+        /* 内容容器 */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+            will-change: transform;
+        }
+
+        .label {
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 24px;
+            color: #1f2937;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* 按钮组 */
+        .button-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            font-size: 15px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 300ms ease;
+            border: none;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.35);
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1f2937;
+            border: 1.5px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        /* 滚动指示器 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            color: #d1d5db;
+        }
+
+        /* 动画定义 */
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(30px, -30px);
+            }
+        }
+
+        @keyframes morph1 {
+            0%, 100% {
+                border-radius: 30% 70% 70% 30%;
+                transform: scale(1);
+            }
+            50% {
+                border-radius: 70% 30% 30% 70%;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes morph2 {
+            0%, 100% {
+                border-radius: 20% 80% 30% 70%;
+                transform: scale(1);
+            }
+            50% {
+                border-radius: 80% 20% 70% 30%;
+                transform: scale(0.95);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+                opacity: 0.5;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 48px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            .shape-1 {
+                width: 400px;
+                height: 400px;
+            }
+
+            .shape-2 {
+                width: 300px;
+                height: 300px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+        }
+
+        /* 深色模式 */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0f172a;
+            }
+
+            .hero::before {
+                background: linear-gradient(135deg, #1a1f2e 0%, #0f172a 50%, #0a0f1a 100%);
+            }
+
+            .hero::after {
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.4) 100%);
+            }
+
+            .content {
+                background: rgba(15, 23, 42, 0.85);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            h1 {
+                color: #f1f5f9;
+            }
+
+            .subtitle {
+                color: #cbd5e1;
+            }
+
+            .btn-secondary {
+                background: rgba(30, 41, 59, 0.95);
+                color: #f1f5f9;
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .btn-secondary:hover {
+                border-color: #3b82f6;
+                background: rgba(59, 130, 246, 0.1);
+            }
+
+            .label {
+                color: #94a3b8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <!-- 背景装饰层 -->
+        <div class="geometric-top"></div>
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="grid-overlay"></div>
+
+        <!-- 内容 -->
+        <div class="content">
+            <p class="label">品牌空间设计平台</p>
+            <h1>品牌设计空间产品<br><span class="highlight">标准体系</span></h1>
+            <p class="subtitle">展示我们完整的品牌设计标准体系，落地项目室内AI驱动设计助手</p>
+
+            <div class="button-group">
+                <button class="btn btn-primary">浏览项目案例 →</button>
+                <button class="btn btn-secondary">查看设计标准</button>
+            </div>
+        </div>
+
+        <!-- 滚动指示器 -->
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+</body>
+</html>
