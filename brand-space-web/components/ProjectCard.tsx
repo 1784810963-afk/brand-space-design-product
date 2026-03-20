@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Project } from '@/data/projects';
 
@@ -23,22 +24,28 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
           featured ? 'min-h-96' : 'h-64'
         }`}
       >
-        {/* 图片背景 - 绝对定位填充整个卡片 */}
-        <div className="absolute inset-0 w-full h-full">
+        {/* 图片容器 - 用于 hover scale 动画 */}
+        <motion.div
+          className="absolute inset-0"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
           {project.image ? (
-            <motion.img
+            <Image
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={index === 0}
+              quality={75}
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-50 flex items-center justify-center">
               <div className="text-gray-300 text-4xl">📐</div>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* 渐变覆盖层 - 从下方透明渐变到黑色，保证文字可读性 */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>

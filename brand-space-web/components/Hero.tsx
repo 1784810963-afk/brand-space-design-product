@@ -14,6 +14,7 @@ export default function Hero() {
         {/* 蓝色渐变圆形 */}
         <motion.div
           className="absolute -top-32 -right-48 w-96 h-96 bg-gradient-to-b from-blue-300/10 via-blue-200/5 to-transparent rounded-full blur-3xl"
+          style={{ willChange: 'transform' }}
           animate={{
             x: [0, 30, 0],
             y: [0, -30, 0],
@@ -28,6 +29,7 @@ export default function Hero() {
         {/* 紫色渐变圆形 */}
         <motion.div
           className="absolute -bottom-48 -left-48 w-96 h-96 bg-gradient-to-t from-indigo-300/8 via-indigo-200/3 to-transparent rounded-full blur-3xl"
+          style={{ willChange: 'transform' }}
           animate={{
             x: [0, -30, 0],
             y: [0, 30, 0],
