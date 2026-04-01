@@ -1,3 +1,5 @@
 {
-  "framework": "nextjs"
+  "buildCommand": "cd brand-space-web && npm run build",
+  "devCommand": "cd brand-space-web && npm run dev",
+  "installCommand": "cd brand-space-web && npm install"
 }
