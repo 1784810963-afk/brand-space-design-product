@@ -15,8 +15,100 @@ export interface Project {
   isRepresentative?: boolean; // 是否为代表性案例（首页展示）
 }
 
-// 示例项目数据
-export const projects: Project[] = [
+// Feishu file_key 到本地图片路径的映射表
+const feishuToLocalImageMap: Record<string, string> = {
+  // 上海前滩L+PLAZA
+  '28126bc6-1b79-46a8-9a9b-1620eb9ac8c2': '/project-images/28126bc6-1b79-46a8-9a9b-1620eb9ac8c2.jpg',
+  'b28dd5c5-de7e-49dc-a73d-1425f89c4a65': '/project-images/b28dd5c5-de7e-49dc-a73d-1425f89c4a65.jpg',
+  'ba2407de-7110-4d3c-9565-d6bde51980fa': '/project-images/ba2407de-7110-4d3c-9565-d6bde51980fa.jpg',
+  // 上海长宁来福士
+  '714958ee-70d1-4d4a-9191-dbc30820c492': '/project-images/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
+  '3d04d58f-8115-46ae-aa1c-98284f08f839': '/project-images/3d04d58f-8115-46ae-aa1c-98284f08f839.jpg',
+  '665aee1e-79d7-41e8-90a2-72a86bc3296e': '/project-images/665aee1e-79d7-41e8-90a2-72a86bc3296e.jpg',
+  // 成都银泰城
+  '5ec81e5c-243c-4825-92b2-2775425a4bbe': '/project-images/5ec81e5c-243c-4825-92b2-2775425a4bbe.jpg',
+  '18eb00e6-58f2-4b73-801d-bdc83f5f3995': '/project-images/18eb00e6-58f2-4b73-801d-bdc83f5f3995.jpg',
+  'b3339968-f877-4d5a-b231-9c9b8d233efc': '/project-images/b3339968-f877-4d5a-b231-9c9b8d233efc.jpg',
+  // 宁波江北综合中心
+  'c08f2e43-9d7c-481c-8cd7-2d81990b6c03': '/project-images/c08f2e43-9d7c-481c-8cd7-2d81990b6c03.jpg',
+  '538a2e94-00fe-4c57-be74-dbc3d2866c7a': '/project-images/538a2e94-00fe-4c57-be74-dbc3d2866c7a.jpg',
+  'c5b2b8b9-61ae-4b20-8dd4-ae68dacf73d1': '/project-images/c5b2b8b9-61ae-4b20-8dd4-ae68dacf73d1.jpg',
+  // 北京展厅
+  '6e077cef-09c2-4a85-8e14-7e079e361bb7': '/project-images/6e077cef-09c2-4a85-8e14-7e079e361bb7.jpg',
+  'e5298397-8426-46c5-8f88-95d7229b15a0': '/project-images/e5298397-8426-46c5-8f88-95d7229b15a0.jpg',
+  'dc8c5299-ae05-4e80-b7a2-94dfa882f6e3': '/project-images/dc8c5299-ae05-4e80-b7a2-94dfa882f6e3.jpg',
+  // 上海国际车展
+  'ebf7be14-1e15-4cc3-9192-5fedf1552b7b': '/project-images/ebf7be14-1e15-4cc3-9192-5fedf1552b7b.jpg',
+  '0fbf69e2-0f40-4d1e-8536-6716d8715c15': '/project-images/0fbf69e2-0f40-4d1e-8536-6716d8715c15.jpg',
+  'ff9dccac-66eb-4a5e-a6c9-5cadf1aa1961': '/project-images/ff9dccac-66eb-4a5e-a6c9-5cadf1aa1961.jpg',
+  // 巡展 - 北京蓝色港湾
+  '2f175aab-8e37-4e18-8ed3-65b965996223': '/project-images/2f175aab-8e37-4e18-8ed3-65b965996223.jpg',
+  '8164c2fb-09b7-4a09-8be7-ed6fac28c94c': '/project-images/8164c2fb-09b7-4a09-8be7-ed6fac28c94c.jpg',
+  'daa9681c-f19e-4ddc-88a3-8bbd56e3b83d': '/project-images/daa9681c-f19e-4ddc-88a3-8bbd56e3b83d.jpg',
+  '074211ad-947f-42a3-9ecd-8ad92bb3a442': '/project-images/074211ad-947f-42a3-9ecd-8ad92bb3a442.jpg',
+  'b14c75c8-060e-4ac1-a90f-63a41d967866': '/project-images/b14c75c8-060e-4ac1-a90f-63a41d967866.jpg',
+  '35d2e2df-31cc-4cc8-89cd-5a74a9442798': '/project-images/35d2e2df-31cc-4cc8-89cd-5a74a9442798.jpg',
+  '0d266c9f-8c43-4739-a710-e65fe7028e99': '/project-images/0d266c9f-8c43-4739-a710-e65fe7028e99.jpg',
+  '84bf1abb-a218-4d25-a22e-fcde51d643f6': '/project-images/84bf1abb-a218-4d25-a22e-fcde51d643f6.jpg',
+  '0cf19814-b277-4b75-8226-7617264c34b1': '/project-images/0cf19814-b277-4b75-8226-7617264c34b1.jpg',
+  '763ef566-c2fe-4f65-8f66-d55309f32afb': '/project-images/763ef566-c2fe-4f65-8f66-d55309f32afb.jpg',
+  '5e66bfeb-d2c9-4498-8f78-e9bb8a805af3': '/project-images/5e66bfeb-d2c9-4498-8f78-e9bb8a805af3.jpg',
+  '7443d81d-ed18-40f6-9bfe-218839da8efe': '/project-images/7443d81d-ed18-40f6-9bfe-218839da8efe.jpg',
+  '7de90c0c-2392-4564-82af-178e4eda4884': '/project-images/7de90c0c-2392-4564-82af-178e4eda4884.jpg',
+  'f138f39f-25fe-4588-ae35-6a39a8177732': '/project-images/f138f39f-25fe-4588-ae35-6a39a8177732.jpg',
+  // 阿那亚展
+  'a17ac9de-050f-4a59-b3ec-40a7b60f37c4': '/project-images/a17ac9de-050f-4a59-b3ec-40a7b60f37c4.jpg',
+  'c410a26a-afe0-4847-a5e4-6642056eaf5f': '/project-images/c410a26a-afe0-4847-a5e4-6642056eaf5f.jpg',
+  '1fc2f162-6673-4964-b46a-8fbc02ecdbdb': '/project-images/1fc2f162-6673-4964-b46a-8fbc02ecdbdb.jpg',
+  // 漆板展示
+  '398a8a5b-e5b7-4269-8b20-c78d95040b2b': '/project-images/398a8a5b-e5b7-4269-8b20-c78d95040b2b.jpg',
+  '15d8af26-89fc-4544-9513-422f3bf08a40': '/project-images/15d8af26-89fc-4544-9513-422f3bf08a40.jpg',
+  'e7200146-b7d7-4127-a330-7ed742441f14': '/project-images/e7200146-b7d7-4127-a330-7ed742441f14.jpg',
+  '47a49d04-ad17-4ad0-a43d-25e5e0514b25': '/project-images/47a49d04-ad17-4ad0-a43d-25e5e0514b25.jpg',
+  // 智能眼镜
+  '79e5aa96-8dae-4d0d-9124-31746c77ed36': '/project-images/79e5aa96-8dae-4d0d-9124-31746c77ed36.jpg',
+  '099f7b8e-54dd-40ff-8d06-8575dd5daced': '/project-images/099f7b8e-54dd-40ff-8d06-8575dd5daced.jpg',
+  '76a99c09-72e5-4307-98a7-6d3d11ad0856': '/project-images/76a99c09-72e5-4307-98a7-6d3d11ad0856.jpg',
+  'ccd951ae-9371-45bb-bc1e-bd493e469860': '/project-images/ccd951ae-9371-45bb-bc1e-bd493e469860.jpg',
+  '66c8a703-f220-4004-accf-19b7789a43ca': '/project-images/66c8a703-f220-4004-accf-19b7789a43ca.jpg',
+  '9d6d4403-fcfb-486c-bd9e-6d93553612a7': '/project-images/9d6d4403-fcfb-486c-bd9e-6d93553612a7.jpg',
+  'f7e1141f-ae57-4bed-99d3-e03d710fa5d7': '/project-images/f7e1141f-ae57-4bed-99d3-e03d710fa5d7.jpg',
+  '69371eb0-5f6a-43b7-af44-b61eaaf0749f': '/project-images/69371eb0-5f6a-43b7-af44-b61eaaf0749f.jpg',
+};
+
+// 从 Feishu URL 提取 file_key
+function extractFileKey(url: string): string | null {
+  const match = url.match(/file_key=feishu-service\/([a-f0-9-]+)/);
+  return match ? match[1] : null;
+}
+
+// 将 Feishu URL 转换为本地路径（开发环境）
+function feishuUrlToLocal(url: string): string {
+  const fileKey = extractFileKey(url);
+  if (fileKey && feishuToLocalImageMap[fileKey]) {
+    return feishuToLocalImageMap[fileKey];
+  }
+  return url; // 如果没有对应的本地文件，返回原 URL
+}
+
+// 根据环境返回适当的图片URL
+function processProjectImages(projects: Project[]): Project[] {
+  // 仅在开发环境使用本地图片
+  const isDevelopment = process.env.NEXT_PUBLIC_ENV === 'development';
+
+  if (!isDevelopment) {
+    return projects;
+  }
+
+  return projects.map(project => ({
+    ...project,
+    image: feishuUrlToLocal(project.image),
+    images: project.images?.map(url => feishuUrlToLocal(url))
+  }));
+}
+
+// 示例项目数据（原始数据）
+const rawProjects: Project[] = [
   // 门店空间设计 - 零售空间
   {
     id: 'project-1',
@@ -128,20 +220,31 @@ export const projects: Project[] = [
   },
   {
     id: 'project-7',
-    title: '2025 MEGA HOME 巡展 - 北京蓝色港湾',
-    description: '面积150㎡的巡展空间，制作20天+搭建2天',
+    title: '2025双旗舰巡展',
+    description: '理想同学环游季',
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2f175aab-8e37-4e18-8ed3-65b965996223.jpg',
     category: '活动空间',
     tags: ['巡展', 'MEGA HOME', '北京'],
-    location: '北京蓝色港湾',
+    location: '首站：北京-蓝色港湾',
     area: '150㎡',
-    buildingTime: '制作20天，现场搭建2天',
-    details: '2025 MEGA HOME 系列巡展北京蓝色港湾站，通过精心的设计和制作，打造了150㎡的高品质展示空间。整个项目周期包括20天的制作和2天的现场搭建，充分展现了品牌对细节的执着追求和快速反应能力。',
+    buildingTime: '2025/05/16',
+    details: '承接理想MEGA Home家庭特别版、理想L9 Ultra智能焕新版切换热度，打造线下专属IP巡展内容，提升重点城市的品牌曝光度，促进销售。\n\n以"理想同学环游季"为主题，开启理想同学在物理世界的初次远行，以"飞屋"连接四城：北京（蓝色港湾）、上海（武康路）、深圳（万象天地）、青岛（万象城），不断延申家的边界，并在每座城市学习当地生活灵感，结识更多朋友。',
     highlights: ['高品质展示', '精细制作工艺', '快速反应能力', '品牌展现专业'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2f175aab-8e37-4e18-8ed3-65b965996223.jpg',
-      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e190edb0-fd26-4abb-a685-cbe7772f98de.jpg',
-      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/28f31261-edde-4119-b6ab-75fd3046bf54.jpg'
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/8164c2fb-09b7-4a09-8be7-ed6fac28c94c.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/daa9681c-f19e-4ddc-88a3-8bbd56e3b83d.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/074211ad-947f-42a3-9ecd-8ad92bb3a442.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/b14c75c8-060e-4ac1-a90f-63a41d967866.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/35d2e2df-31cc-4cc8-89cd-5a74a9442798.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/0d266c9f-8c43-4739-a710-e65fe7028e99.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/84bf1abb-a218-4d25-a22e-fcde51d643f6.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/0cf19814-b277-4b75-8226-7617264c34b1.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/763ef566-c2fe-4f65-8f66-d55309f32afb.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/5e66bfeb-d2c9-4498-8f78-e9bb8a805af3.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/7443d81d-ed18-40f6-9bfe-218839da8efe.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/7de90c0c-2392-4564-82af-178e4eda4884.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/f138f39f-25fe-4588-ae35-6a39a8177732.jpg'
     ]
   },
   {
@@ -202,3 +305,5 @@ export const projects: Project[] = [
   }
 ];
 
+// 导出处理后的项目列表（开发环境使用占位符，生产环境使用真实URL）
+export const projects = processProjectImages(rawProjects);
