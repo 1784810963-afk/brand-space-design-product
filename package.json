@@ -1,0 +1,13 @@
+{
+  "name": "brand-space-design-product",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "brand-space-web"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=brand-space-web",
+    "build": "npm run build --workspace=brand-space-web",
+    "start": "npm start --workspace=brand-space-web"
+  }
+}
