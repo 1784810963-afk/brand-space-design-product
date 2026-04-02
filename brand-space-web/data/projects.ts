@@ -17,28 +17,88 @@ export interface Project {
 
 // Feishu file_key 到本地图片路径的映射表
 const feishuToLocalImageMap: Record<string, string> = {
+  // 北京华贸零售中心
+  '1c97804b-80ab-4caa-9b5c-51569324b6ec': '/project-images/1c97804b-80ab-4caa-9b5c-51569324b6ec.jpg',
+  '75dd37d5-fd63-4b6b-af5c-892c025fd8f5': '/project-images/75dd37d5-fd63-4b6b-af5c-892c025fd8f5.jpg',
+  '2b2ede06-f13f-40ce-943e-48fded3d96fc': '/project-images/2b2ede06-f13f-40ce-943e-48fded3d96fc.jpg',
+  'a24af2b2-8652-4f09-a092-6bc91d805f34': '/project-images/a24af2b2-8652-4f09-a092-6bc91d805f34.jpg',
+  '5610d9f8-ecfe-444b-a5fd-8c8dbebade95': '/project-images/5610d9f8-ecfe-444b-a5fd-8c8dbebade95.jpg',
+  '741643f8-1c38-4c07-9543-6cd6f54ca43f': '/project-images/741643f8-1c38-4c07-9543-6cd6f54ca43f.jpg',
+  '6bd2cd03-59cf-484f-ba2b-cf899cfc9e3e': '/project-images/6bd2cd03-59cf-484f-ba2b-cf899cfc9e3e.jpg',
+  '1503d422-275c-4ed9-afc0-1a977c112532': '/project-images/1503d422-275c-4ed9-afc0-1a977c112532.jpg',
+  '2587143b-289e-4539-ab91-cc213378b794': '/project-images/2587143b-289e-4539-ab91-cc213378b794.jpg',
+  '9c915bea-757d-4cb1-bc2e-915277a354c3': '/project-images/9c915bea-757d-4cb1-bc2e-915277a354c3.jpg',
+  '9afb26b5-9f48-4275-b7c6-53060bd15c46': '/project-images/9afb26b5-9f48-4275-b7c6-53060bd15c46.jpg',
+  'a83eb34a-dbc7-42d9-b51f-e991a7456656': '/project-images/a83eb34a-dbc7-42d9-b51f-e991a7456656.jpg',
   // 上海前滩L+PLAZA
   '28126bc6-1b79-46a8-9a9b-1620eb9ac8c2': '/project-images/28126bc6-1b79-46a8-9a9b-1620eb9ac8c2.jpg',
   'b28dd5c5-de7e-49dc-a73d-1425f89c4a65': '/project-images/b28dd5c5-de7e-49dc-a73d-1425f89c4a65.jpg',
   'ba2407de-7110-4d3c-9565-d6bde51980fa': '/project-images/ba2407de-7110-4d3c-9565-d6bde51980fa.jpg',
+  '114889c5-df67-4c2d-8a68-5ea6f88072af': '/project-images/114889c5-df67-4c2d-8a68-5ea6f88072af.jpg',
+  '7c58ffb9-cf92-41be-95a6-9a72bc97819a': '/project-images/7c58ffb9-cf92-41be-95a6-9a72bc97819a.jpg',
+  '1f83ea74-59a7-409c-b059-030b9891f013': '/project-images/1f83ea74-59a7-409c-b059-030b9891f013.jpg',
+  'f02cda96-79ec-4476-af44-1956a41af6fc': '/project-images/f02cda96-79ec-4476-af44-1956a41af6fc.jpg',
   // 上海长宁来福士
   '714958ee-70d1-4d4a-9191-dbc30820c492': '/project-images/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
   '3d04d58f-8115-46ae-aa1c-98284f08f839': '/project-images/3d04d58f-8115-46ae-aa1c-98284f08f839.jpg',
   '665aee1e-79d7-41e8-90a2-72a86bc3296e': '/project-images/665aee1e-79d7-41e8-90a2-72a86bc3296e.jpg',
+  '27865229-db87-4f09-85c8-3e36777e7f23': '/project-images/27865229-db87-4f09-85c8-3e36777e7f23.jpg',
+  'f50e4e22-3531-4916-a5bb-4e322432ec74': '/project-images/f50e4e22-3531-4916-a5bb-4e322432ec74.jpg',
+  'e59c2c16-a787-4e17-bbca-ea2b9778347f': '/project-images/e59c2c16-a787-4e17-bbca-ea2b9778347f.jpg',
+  '2c979c63-4670-446f-bf07-76f80ec7f0ea': '/project-images/2c979c63-4670-446f-bf07-76f80ec7f0ea.jpg',
+  '104c7c52-efe2-48c2-859c-658e467f450f': '/project-images/104c7c52-efe2-48c2-859c-658e467f450f.jpg',
+  '0d5698bb-a2b4-44ad-869e-4aceb446625b': '/project-images/0d5698bb-a2b4-44ad-869e-4aceb446625b.jpg',
+  // 北京祥云小镇零售中心
+  'd9e14c98-2c13-426e-a752-0cc05c9aba9e': '/project-images/d9e14c98-2c13-426e-a752-0cc05c9aba9e.jpg',
+  '1e273090-226d-4f4e-bb3d-3bc1a8deccdc': '/project-images/1e273090-226d-4f4e-bb3d-3bc1a8deccdc.jpg',
+  '13e20cb9-4fba-4d58-b951-762201269952': '/project-images/13e20cb9-4fba-4d58-b951-762201269952.jpg',
+  'dd19f071-1f1b-493d-9c7e-dba479216a9a': '/project-images/dd19f071-1f1b-493d-9c7e-dba479216a9a.jpg',
+  '596f5147-2b99-4add-badb-41c6e12afba4': '/project-images/596f5147-2b99-4add-badb-41c6e12afba4.jpg',
+  // 北京来广营零售中心
+  'e2a9452b-dbb3-4860-abd2-7bd35460aa0b': '/project-images/e2a9452b-dbb3-4860-abd2-7bd35460aa0b.jpg',
+  '049194a5-9127-40c1-84f3-e0ae0565537d': '/project-images/049194a5-9127-40c1-84f3-e0ae0565537d.jpg',
+  '17e4c0dd-0d02-41b2-9114-3d3cd3975d06': '/project-images/17e4c0dd-0d02-41b2-9114-3d3cd3975d06.jpg',
+  '65706194-ad10-4d32-a2e7-ff78c50b81e8': '/project-images/65706194-ad10-4d32-a2e7-ff78c50b81e8.jpg',
+  '10cc90a7-97e7-42f4-bd65-4f54302f3b10': '/project-images/10cc90a7-97e7-42f4-bd65-4f54302f3b10.jpg',
   // 成都银泰城
   '5ec81e5c-243c-4825-92b2-2775425a4bbe': '/project-images/5ec81e5c-243c-4825-92b2-2775425a4bbe.jpg',
   '18eb00e6-58f2-4b73-801d-bdc83f5f3995': '/project-images/18eb00e6-58f2-4b73-801d-bdc83f5f3995.jpg',
   'b3339968-f877-4d5a-b231-9c9b8d233efc': '/project-images/b3339968-f877-4d5a-b231-9c9b8d233efc.jpg',
+  '3f307b52-bc69-4c33-856b-21dcf6aa7762': '/project-images/3f307b52-bc69-4c33-856b-21dcf6aa7762.jpg',
+  'd9dafcd2-ed50-4c4c-9b99-6c0fdeab25e0': '/project-images/d9dafcd2-ed50-4c4c-9b99-6c0fdeab25e0.jpg',
   // 宁波江北综合中心
   'c08f2e43-9d7c-481c-8cd7-2d81990b6c03': '/project-images/c08f2e43-9d7c-481c-8cd7-2d81990b6c03.jpg',
   '538a2e94-00fe-4c57-be74-dbc3d2866c7a': '/project-images/538a2e94-00fe-4c57-be74-dbc3d2866c7a.jpg',
   'c5b2b8b9-61ae-4b20-8dd4-ae68dacf73d1': '/project-images/c5b2b8b9-61ae-4b20-8dd4-ae68dacf73d1.jpg',
   // 北京展厅
   '6e077cef-09c2-4a85-8e14-7e079e361bb7': '/project-images/6e077cef-09c2-4a85-8e14-7e079e361bb7.jpg',
+  'daf61809-ff0b-4f29-9614-433717fc9f9c': '/project-images/daf61809-ff0b-4f29-9614-433717fc9f9c.jpg',
+  'c3ead5fd-a4bb-44ad-b8c3-17f8ecb0c79b': '/project-images/c3ead5fd-a4bb-44ad-b8c3-17f8ecb0c79b.jpg',
+  'ca155180-8b5a-4d89-83e6-ce9f6e5a9c41': '/project-images/ca155180-8b5a-4d89-83e6-ce9f6e5a9c41.jpg',
+  '6e35b37f-407d-4497-acb4-3cb015b61fb9': '/project-images/6e35b37f-407d-4497-acb4-3cb015b61fb9.jpg',
+  '99d231d5-cae9-4e21-9764-8b1aa553de8e': '/project-images/99d231d5-cae9-4e21-9764-8b1aa553de8e.jpg',
+  '11c49598-cf0a-4328-b932-fdc2c1c17f9e': '/project-images/11c49598-cf0a-4328-b932-fdc2c1c17f9e.jpg',
+  'f98f35ed-7e56-4219-ac13-93868b7b4250': '/project-images/f98f35ed-7e56-4219-ac13-93868b7b4250.jpg',
   'e5298397-8426-46c5-8f88-95d7229b15a0': '/project-images/e5298397-8426-46c5-8f88-95d7229b15a0.jpg',
   'dc8c5299-ae05-4e80-b7a2-94dfa882f6e3': '/project-images/dc8c5299-ae05-4e80-b7a2-94dfa882f6e3.jpg',
   // 上海国际车展
   'ebf7be14-1e15-4cc3-9192-5fedf1552b7b': '/project-images/ebf7be14-1e15-4cc3-9192-5fedf1552b7b.jpg',
+  '18e3bbe0-1aed-4c30-bad2-79c6c826d43e': '/project-images/18e3bbe0-1aed-4c30-bad2-79c6c826d43e.jpg',
+  '013e8135-ccd9-4920-8a67-02693106d9d9': '/project-images/013e8135-ccd9-4920-8a67-02693106d9d9.jpg',
+  '871abad0-25b0-41bf-ae7f-ed6b0be6c3d4': '/project-images/871abad0-25b0-41bf-ae7f-ed6b0be6c3d4.jpg',
+  '857d3b65-e7d2-40fc-b42e-7b1006f35037': '/project-images/857d3b65-e7d2-40fc-b42e-7b1006f35037.jpg',
+  '1ad7ccc5-4ab9-4898-81a6-42a4c124cde1': '/project-images/1ad7ccc5-4ab9-4898-81a6-42a4c124cde1.jpg',
+  '44fc211e-de1a-43fa-9b7b-3a8f5786ccfa': '/project-images/44fc211e-de1a-43fa-9b7b-3a8f5786ccfa.jpg',
+  '5c550e8d-b923-4a4d-ad11-65ba127eb770': '/project-images/5c550e8d-b923-4a4d-ad11-65ba127eb770.jpg',
+  '0f616616-6a86-4536-9a22-1917e214fa15': '/project-images/0f616616-6a86-4536-9a22-1917e214fa15.jpg',
+  'e498b07f-957d-44e2-9bd7-c6dd1681a77d': '/project-images/e498b07f-957d-44e2-9bd7-c6dd1681a77d.jpg',
+  'd2b767f3-6e61-4912-8497-45573d7433d1': '/project-images/d2b767f3-6e61-4912-8497-45573d7433d1.jpg',
+  'b1c27430-4ac5-4056-aecb-b7320a797980': '/project-images/b1c27430-4ac5-4056-aecb-b7320a797980.jpg',
+  'eeeacf9b-c765-41eb-84b8-0b9ab605c760': '/project-images/eeeacf9b-c765-41eb-84b8-0b9ab605c760.jpg',
+  '23b0d798-01f2-4e6a-9998-eb85da22509a': '/project-images/23b0d798-01f2-4e6a-9998-eb85da22509a.jpg',
+  '286f64de-5885-4c7a-84aa-4df22ceb375f': '/project-images/286f64de-5885-4c7a-84aa-4df22ceb375f.jpg',
+  'aa75b8df-1865-4e7e-b7fb-7aa53b313563': '/project-images/aa75b8df-1865-4e7e-b7fb-7aa53b313563.jpg',
+  'a51cc998-eb13-47a7-8019-7d1e88ecbbf6': '/project-images/a51cc998-eb13-47a7-8019-7d1e88ecbbf6.jpg',
   '0fbf69e2-0f40-4d1e-8536-6716d8715c15': '/project-images/0fbf69e2-0f40-4d1e-8536-6716d8715c15.jpg',
   'ff9dccac-66eb-4a5e-a6c9-5cadf1aa1961': '/project-images/ff9dccac-66eb-4a5e-a6c9-5cadf1aa1961.jpg',
   // 巡展 - 北京蓝色港湾
@@ -56,10 +116,37 @@ const feishuToLocalImageMap: Record<string, string> = {
   '7443d81d-ed18-40f6-9bfe-218839da8efe': '/project-images/7443d81d-ed18-40f6-9bfe-218839da8efe.jpg',
   '7de90c0c-2392-4564-82af-178e4eda4884': '/project-images/7de90c0c-2392-4564-82af-178e4eda4884.jpg',
   'f138f39f-25fe-4588-ae35-6a39a8177732': '/project-images/f138f39f-25fe-4588-ae35-6a39a8177732.jpg',
-  // 阿那亚展
+  // MEGA动静态展-阿那亚
   'a17ac9de-050f-4a59-b3ec-40a7b60f37c4': '/project-images/a17ac9de-050f-4a59-b3ec-40a7b60f37c4.jpg',
   'c410a26a-afe0-4847-a5e4-6642056eaf5f': '/project-images/c410a26a-afe0-4847-a5e4-6642056eaf5f.jpg',
   '1fc2f162-6673-4964-b46a-8fbc02ecdbdb': '/project-images/1fc2f162-6673-4964-b46a-8fbc02ecdbdb.jpg',
+  '5801f776-80a6-43d2-9daf-82c2829a644e': '/project-images/5801f776-80a6-43d2-9daf-82c2829a644e.jpg',
+  '20385a12-17fa-46c2-920e-c05f564bba40': '/project-images/20385a12-17fa-46c2-920e-c05f564bba40.jpg',
+  '78401e8a-bdc9-49c3-af88-8036365fb6f8': '/project-images/78401e8a-bdc9-49c3-af88-8036365fb6f8.jpg',
+  '83461045-18c9-42e3-9eb9-9f4c4e62af39': '/project-images/83461045-18c9-42e3-9eb9-9f4c4e62af39.jpg',
+  // 阿那亚童话月外展
+  'ac4166b0-3c88-46b0-b976-9bac65690944': '/project-images/ac4166b0-3c88-46b0-b976-9bac65690944.jpg',
+  'e57fbbea-3f40-447a-8782-634631525a75': '/project-images/e57fbbea-3f40-447a-8782-634631525a75.jpg',
+  '8d6a0348-a7c1-4dcc-902c-3a1eca9204ec': '/project-images/8d6a0348-a7c1-4dcc-902c-3a1eca9204ec.jpg',
+  'd6a00828-e5f0-40db-b4b2-b4c8e3abc3eb': '/project-images/d6a00828-e5f0-40db-b4b2-b4c8e3abc3eb.jpg',
+  '3139af25-8b3b-4bbc-9ab0-ac9735e0fcab': '/project-images/3139af25-8b3b-4bbc-9ab0-ac9735e0fcab.jpg',
+  '068a46e1-c035-487c-b467-e7e417b3e3bd': '/project-images/068a46e1-c035-487c-b467-e7e417b3e3bd.jpg',
+  '0ad00eb4-a40c-43b0-9c2f-ca64895f0401': '/project-images/0ad00eb4-a40c-43b0-9c2f-ca64895f0401.jpg',
+  '8f46e9aa-bdb1-4d3b-9820-a31916c369df': '/project-images/8f46e9aa-bdb1-4d3b-9820-a31916c369df.jpg',
+  '34a9a72b-952f-4501-afdc-76bde0c3554c': '/project-images/34a9a72b-952f-4501-afdc-76bde0c3554c.jpg',
+  '9f9ba575-2d5b-4c20-9b21-e24112d0b66f': '/project-images/9f9ba575-2d5b-4c20-9b21-e24112d0b66f.jpg',
+  // 阿勒泰文旅合作
+  'c6541b35-f911-4859-9061-7dd81172137c': '/project-images/c6541b35-f911-4859-9061-7dd81172137c.jpg',
+  '001011db-9534-4145-8a45-f7d3fefa54c8': '/project-images/001011db-9534-4145-8a45-f7d3fefa54c8.jpg',
+  '0680f913-0d75-4da4-bbf6-bf0781933ff0': '/project-images/0680f913-0d75-4da4-bbf6-bf0781933ff0.jpg',
+  '48470988-6787-4872-9f5c-d8872a9169cb': '/project-images/48470988-6787-4872-9f5c-d8872a9169cb.jpg',
+  'a49058a3-a759-43c3-8a74-4db3df7d0431': '/project-images/a49058a3-a759-43c3-8a74-4db3df7d0431.jpg',
+  '868b6d9e-1c02-4bcd-9019-24f70b4f5caf': '/project-images/868b6d9e-1c02-4bcd-9019-24f70b4f5caf.jpg',
+  '773ed854-cb63-4bf7-951d-abc18ee6c2c8': '/project-images/773ed854-cb63-4bf7-951d-abc18ee6c2c8.jpg',
+  '27120304-71c7-4980-a2d5-482b936dbb35': '/project-images/27120304-71c7-4980-a2d5-482b936dbb35.jpg',
+  '894cb647-b2a0-4d6f-9148-935f35b28e00': '/project-images/894cb647-b2a0-4d6f-9148-935f35b28e00.jpg',
+  'df89e4e6-7d2b-4029-837c-c6b4d4afcb21': '/project-images/df89e4e6-7d2b-4029-837c-c6b4d4afcb21.jpg',
+  '01e1d017-53f1-44e6-a08c-41dd330cea42': '/project-images/01e1d017-53f1-44e6-a08c-41dd330cea42.jpg',
   // 漆板展示
   '398a8a5b-e5b7-4269-8b20-c78d95040b2b': '/project-images/398a8a5b-e5b7-4269-8b20-c78d95040b2b.jpg',
   '15d8af26-89fc-4544-9513-422f3bf08a40': '/project-images/15d8af26-89fc-4544-9513-422f3bf08a40.jpg',
@@ -107,8 +194,37 @@ function processProjectImages(projects: Project[]): Project[] {
   }));
 }
 
-// 示例项目数据（原始数据）
+// 示例项目数据(原始数据)
 const rawProjects: Project[] = [
+  // 门店空间设计 - 高级店
+  {
+    id: 'project-0',
+    title: '北京华贸零售中心',
+    description: '面积777㎡的高级店设计,展现品牌旗舰形象',
+    image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1c97804b-80ab-4caa-9b5c-51569324b6ec.jpg',
+    category: '零售空间',
+    tags: ['高级店', '北京', '华贸'],
+    location: '北京市朝阳区建国路89号院华贸商业街11号楼L03号',
+    area: '777㎡',
+    buildingTime: '2024/01/27',
+    isRepresentative: true,
+    details: '北京华贸零售中心作为高级店的典范,占地777㎡,位于北京核心商圈。通过精心的空间设计和品牌标准的应用,为客户打造了极致的购物体验。设计充分展现了品牌的高端定位和创新理念。',
+    highlights: ['旗舰店设计', '核心商圈', '极致体验', '高端定位'],
+    images: [
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1c97804b-80ab-4caa-9b5c-51569324b6ec.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/75dd37d5-fd63-4b6b-af5c-892c025fd8f5.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2b2ede06-f13f-40ce-943e-48fded3d96fc.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/a24af2b2-8652-4f09-a092-6bc91d805f34.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/5610d9f8-ecfe-444b-a5fd-8c8dbebade95.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/741643f8-1c38-4c07-9543-6cd6f54ca43f.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/6bd2cd03-59cf-484f-ba2b-cf899cfc9e3e.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1503d422-275c-4ed9-afc0-1a977c112532.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2587143b-289e-4539-ab91-cc213378b794.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/9c915bea-757d-4cb1-bc2e-915277a354c3.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/9afb26b5-9f48-4275-b7c6-53060bd15c46.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/a83eb34a-dbc7-42d9-b51f-e991a7456656.jpg'
+    ]
+  },
   // 门店空间设计 - 零售空间
   {
     id: 'project-1',
@@ -143,6 +259,46 @@ const rawProjects: Project[] = [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/3d04d58f-8115-46ae-aa1c-98284f08f839.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/665aee1e-79d7-41e8-90a2-72a86bc3296e.jpg'
+    ]
+  },
+  {
+    id: 'project-2-5',
+    title: '北京祥云小镇零售中心',
+    description: '面积1114㎡的高级店设计,展现大型零售空间的品牌魅力',
+    image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/d9e14c98-2c13-426e-a752-0cc05c9aba9e.jpg',
+    category: '零售空间',
+    tags: ['高级店', '北京', '祥云小镇'],
+    location: '北京市顺义区安泰大街9号院中粮·祥云小镇4号楼1层',
+    area: '1114㎡',
+    buildingTime: '2024/10/31',
+    details: '北京祥云小镇零售中心是大型高级店的代表,占地1114㎡。通过精心的空间规划和品牌标准的应用,为客户打造了开阔舒适的购物环境。设计充分体现了品牌的高端定位和服务理念。',
+    highlights: ['大型高级店', '开阔空间', '舒适环境', '品牌定位'],
+    images: [
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/d9e14c98-2c13-426e-a752-0cc05c9aba9e.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1e273090-226d-4f4e-bb3d-3bc1a8deccdc.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/13e20cb9-4fba-4d58-b951-762201269952.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/dd19f071-1f1b-493d-9c7e-dba479216a9a.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/596f5147-2b99-4add-badb-41c6e12afba4.jpg'
+    ]
+  },
+  {
+    id: 'project-2-6',
+    title: '北京来广营零售中心',
+    description: '面积2106㎡的高级店设计,打造旗舰级购物体验',
+    image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e2a9452b-dbb3-4860-abd2-7bd35460aa0b.jpg',
+    category: '零售空间',
+    tags: ['高级店', '北京', '来广营'],
+    location: '北京市朝阳区来广营乡顾家庄桥北293米路西',
+    area: '2106㎡',
+    buildingTime: '2024/05/28',
+    details: '北京来广营零售中心是超大型高级店的典范,占地2106㎡。作为旗舰级零售空间,通过精心的设计和完善的服务设施,为客户提供了极致的购物体验。空间设计充分体现了品牌的规模优势和服务能力。',
+    highlights: ['旗舰级店铺', '超大空间', '完善设施', '极致体验'],
+    images: [
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e2a9452b-dbb3-4860-abd2-7bd35460aa0b.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/049194a5-9127-40c1-84f3-e0ae0565537d.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/17e4c0dd-0d02-41b2-9114-3d3cd3975d06.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/65706194-ad10-4d32-a2e7-ff78c50b81e8.jpg',
+      'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/10cc90a7-97e7-42f4-bd65-4f54302f3b10.jpg'
     ]
   },
   {
