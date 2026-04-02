@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Newspaper } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -93,7 +94,7 @@ export default function DesignNewsPage() {
           </Link>
           <div className="flex-1">
             <h1 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-              <span>📰</span>
+              <Newspaper className="w-6 h-6 text-purple-600" />
               <span>设计新闻Agent</span>
             </h1>
             <p className="text-sm text-gray-600">实时追踪科技公司的设计动态</p>

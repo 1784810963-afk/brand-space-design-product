@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { TrendingUp, FolderOpen, Newspaper } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -24,21 +25,21 @@ export default function AIChatPage() {
   const agentCards = [
     {
       id: 'trend',
-      icon: '🎯',
+      icon: <TrendingUp className="w-10 h-10 text-purple-600" />,
       title: '设计趋势分析',
       description: '分析最新的设计趋势和市场动向',
       available: false,
     },
     {
       id: 'case',
-      icon: '📂',
+      icon: <FolderOpen className="w-10 h-10 text-purple-600" />,
       title: '案例获取',
       description: '智能推荐相关的成功案例和最佳实践',
       available: false,
     },
     {
       id: 'design-news',
-      icon: '📰',
+      icon: <Newspaper className="w-10 h-10 text-purple-600" />,
       title: '设计新闻Agent',
       description: '自动获取科技公司的最新设计动态和新闻',
       available: true,
@@ -247,7 +248,7 @@ export default function AIChatPage() {
                     : 'border-gray-200'
                 }`}
               >
-                <div className="text-4xl mb-4">{agent.icon}</div>
+                <div className="mb-4">{agent.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {agent.title}
                 </h3>
