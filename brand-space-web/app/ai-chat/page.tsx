@@ -16,7 +16,7 @@ export default function AIChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: '你好！我是设计标准 AI 助手 📚\n\n我可以帮你：\n• 快速查询设计标准和规范\n• 解答设计相关的专业问题\n• 提供最佳实践建议\n\n请输入你的问题，我会尽力帮助你！'
+      content: '你好！我是设计标准 AI 助手\n\n我可以帮你：\n• 快速查询设计标准和规范\n• 解答设计相关的专业问题\n• 提供最佳实践建议\n\n请输入你的问题，我会尽力帮助你！'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -210,7 +210,7 @@ export default function AIChatPage() {
             className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200"
           >
             <p className="text-sm text-blue-800">
-              💡 <strong>提示：</strong> 这是设计标准咨询助手。如需使用其他AI能力，请向下滚动查看更多选项。现在由通义千问（Qwen）提供支持。
+              <strong>提示：</strong> 这是设计标准咨询助手。如需使用其他AI能力，请向下滚动查看更多选项。现在由通义千问（Qwen）提供支持。
             </p>
           </motion.div>
         </div>

@@ -18,7 +18,7 @@ export default function DesignNewsPage() {
     {
       id: '1',
       role: 'assistant',
-      content: '你好！我是设计新闻Agent 📰\n\n我可以帮你获取以下科技公司的最新设计动态：\n\n• **Apple** - iOS、macOS 设计更新\n• **华为** - HarmonyOS 界面设计\n• **蔚来** - 汽车 UI/UX 创新\n• **小米** - MIUI 设计趋势\n\n试试输入公司名称，或直接问我"最近有什么设计新闻？"'
+      content: '你好！我是设计新闻Agent\n\n我可以帮你获取以下科技公司的最新设计动态：\n\n• **Apple** - iOS、macOS 设计更新\n• **华为** - HarmonyOS 界面设计\n• **蔚来** - 汽车 UI/UX 创新\n• **小米** - MIUI 设计趋势\n\n试试输入公司名称，或直接问我"最近有什么设计新闻？"'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -212,7 +212,7 @@ export default function DesignNewsPage() {
             className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200"
           >
             <p className="text-sm text-blue-800">
-              💡 <strong>提示：</strong> 我可以获取Apple、华为、蔚来、小米的最新设计动态。试试直接输入公司名称！现在由通义千问（Qwen）提供支持。
+              <strong>提示：</strong> 我可以获取Apple、华为、蔚来、小米的最新设计动态。试试直接输入公司名称！现在由通义千问（Qwen）提供支持。
             </p>
           </motion.div>
         </div>
