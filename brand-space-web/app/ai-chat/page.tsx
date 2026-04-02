@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
-type ChatMode = 'trend' | 'standard' | 'case';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
   id: string;
@@ -13,37 +13,15 @@ interface Message {
 }
 
 export default function AIChatPage() {
-  const [mode, setMode] = useState<ChatMode>('standard');
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       role: 'assistant',
-      content: '你好！我是设计标准 AI 助手。我可以帮你了解设计标准、分析设计趋势和推荐相关案例。请选择你感兴趣的话题。'
+      content: '你好！我是设计标准 AI 助手 📚\n\n我可以帮你：\n• 快速查询设计标准和规范\n• 解答设计相关的专业问题\n• 提供最佳实践建议\n\n请输入你的问题，我会尽力帮助你！'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  const modes = [
-    {
-      id: 'standard',
-      label: '设计标准咨询',
-      description: '快速查询和解答关于设计标准的各种问题',
-      icon: '📚'
-    },
-    {
-      id: 'trend',
-      label: '设计趋势分析',
-      description: '分析最新的设计趋势和市场动向',
-      icon: '🎯'
-    },
-    {
-      id: 'case',
-      label: '案例获取',
-      description: '智能推荐相关的成功案例和最佳实践',
-      icon: '📂'
-    }
-  ] as const;
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
@@ -71,7 +49,7 @@ export default function AIChatPage() {
         },
         body: JSON.stringify({
           message: userInput,
-          mode: mode,
+          mode: 'standard',
         }),
       });
 
@@ -126,33 +104,12 @@ export default function AIChatPage() {
       {/* 主体区域 */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-5xl mx-auto">
-          {/* 模式选择卡片 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            {modes.map((m) => (
-              <motion.button
-                key={m.id}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setMode(m.id as ChatMode)}
-                className={`p-4 rounded-xl border-2 text-left transition-all ${
-                  mode === m.id
-                    ? 'border-purple-600 bg-purple-50'
-                    : 'border-gray-200 bg-white hover:border-purple-300'
-                }`}
-              >
-                <div className="text-3xl mb-2">{m.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-1">{m.label}</h3>
-                <p className="text-sm text-gray-600">{m.description}</p>
-              </motion.button>
-            ))}
-          </div>
-
           {/* 聊天区域 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden flex flex-col h-96"
+            className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden flex flex-col h-[600px]"
           >
             {/* 聊天历史 */}
             <div className="flex-1 overflow-y-auto p-6 space-y-4">
@@ -165,13 +122,13 @@ export default function AIChatPage() {
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                    className={`max-w-xs lg:max-w-2xl px-4 py-3 rounded-lg ${
                       msg.role === 'user'
                         ? 'bg-purple-600 text-white rounded-br-none'
                         : 'bg-gray-100 text-gray-900 rounded-bl-none'
                     }`}
                   >
-                    {msg.content}
+                    <div className="whitespace-pre-wrap">{msg.content}</div>
                   </div>
                 </motion.div>
               ))}
@@ -204,7 +161,7 @@ export default function AIChatPage() {
                       handleSendMessage();
                     }
                   }}
-                  placeholder="输入你的问题..."
+                  placeholder="输入你的问题，例如：什么是Material Design的核心原则？"
                   disabled={isLoading}
                   className="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-600"
                 />
@@ -229,7 +186,7 @@ export default function AIChatPage() {
             className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200"
           >
             <p className="text-sm text-blue-800">
-              💡 <strong>提示：</strong> 这是 AI 助手的演示版本。现在由 Google Gemini AI 提供支持。
+              💡 <strong>提示：</strong> 这是设计标准咨询助手。如需使用其他AI能力，请向下滚动查看更多选项。现在由通义千问（Qwen）提供支持。
             </p>
           </motion.div>
         </div>
