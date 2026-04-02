@@ -55,7 +55,7 @@ export default function Logo({ size = 'md', showText = true, className = '' }: L
       {/* 文字 */}
       {showText && (
         <span className={`font-bold text-gray-900 whitespace-nowrap ${textSize}`}>
-          品牌空间
+          Brand Space
         </span>
       )}
     </div>

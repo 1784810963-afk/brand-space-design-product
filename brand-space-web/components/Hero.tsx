@@ -70,7 +70,7 @@ export default function Hero() {
             className="inline-block"
           >
             <span className="inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              品牌空间设计平台
+              Brand Space Design Platform
             </span>
           </motion.div>
 
@@ -81,10 +81,10 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
           >
-            品牌设计空间产品
+            Brand Space Design
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-              标准体系
+              Standards System
             </span>
           </motion.h1>
 
@@ -95,7 +95,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
-            展示我们完整的设计标准体系、落地项目案例及 AI 驱动的设计助手
+            Showcase of comprehensive design standards, project cases, and AI-powered design assistant
           </motion.p>
 
           {/* 按钮组 */}

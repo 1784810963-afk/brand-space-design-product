@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "品牌空间设计平台 - 完整的设计标准体系展示",
-  description: "展示品牌空间设计标准、落地项目案例和 AI 驱动的设计助手",
+  title: "Brand Space Design Platform - Complete Design Standards System",
+  description: "Showcase of Brand Space design standards, project cases, and AI-powered design assistant",
 };
 
 export default function RootLayout({
