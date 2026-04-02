@@ -1,6 +1,1 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "brand-space-web/.next",
-  "framework": "nextjs",
-  "installCommand": "npm install"
-}
+{}
