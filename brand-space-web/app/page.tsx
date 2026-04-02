@@ -205,7 +205,7 @@ export default function Home() {
       <footer className="w-full bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2026 Brand Space Design Platform. All rights reserved.
+            © 2026 品牌空间设计平台. 所有权利保留。
           </p>
         </div>
       </footer>
