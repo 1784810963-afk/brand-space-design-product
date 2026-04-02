@@ -17,16 +17,17 @@ function getLocale(request: NextRequest): string {
       .split(',')
       .map(lang => {
         const [code, priority] = lang.split(';q=');
+        const parsedPriority = priority ? parseFloat(priority) : 1.0;
         return {
           code: code.trim().split('-')[0], // Get base language code
-          priority: priority ? parseFloat(priority) : 1.0
+          priority: isNaN(parsedPriority) ? 0 : parsedPriority
         };
       })
       .sort((a, b) => b.priority - a.priority);
 
     // Find first matching locale
     for (const lang of languages) {
-      if (i18n.locales.includes(lang.code as any)) {
+      if (i18n.locales.includes(lang.code as typeof i18n.locales[number])) {
         return lang.code;
       }
     }
@@ -43,7 +44,7 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return NextResponse.next();
 
   // Detect preferred language
   const locale = getLocale(request);
