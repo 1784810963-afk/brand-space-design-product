@@ -99,15 +99,15 @@ export default function AIChatPage() {
         </div>
       </section>
 
-      {/* 主体区域 */}
-      <section className="w-full px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-5xl mx-auto">
+      {/* 主体区域 - 改为 min-h-screen */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-8 min-h-screen flex flex-col">
+        <div className="max-w-5xl mx-auto flex-1 flex flex-col">
           {/* 聊天区域 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden flex flex-col h-[600px]"
+            className="bg-white rounded-2xl border-2 border-gray-200 overflow-hidden flex flex-col h-[calc(100vh-16rem)]"
           >
             {/* 聊天历史 */}
             <div className="flex-1 overflow-y-auto p-6 space-y-4">
