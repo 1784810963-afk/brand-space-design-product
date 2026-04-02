@@ -21,6 +21,31 @@ export default function AIChatPage() {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const agentCards = [
+    {
+      id: 'trend',
+      icon: '🎯',
+      title: '设计趋势分析',
+      description: '分析最新的设计趋势和市场动向',
+      available: false,
+    },
+    {
+      id: 'case',
+      icon: '📂',
+      title: '案例获取',
+      description: '智能推荐相关的成功案例和最佳实践',
+      available: false,
+    },
+    {
+      id: 'design-news',
+      icon: '📰',
+      title: '设计新闻Agent',
+      description: '自动获取科技公司的最新设计动态和新闻',
+      available: true,
+      href: '/ai-chat/design-news',
+    },
+  ];
+
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
@@ -187,6 +212,70 @@ export default function AIChatPage() {
               💡 <strong>提示：</strong> 这是设计标准咨询助手。如需使用其他AI能力，请向下滚动查看更多选项。现在由通义千问（Qwen）提供支持。
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* 更多AI助手区域 */}
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white to-purple-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              探索更多AI能力
+            </h2>
+            <p className="text-lg text-gray-600">
+              专业的设计分析和资讯获取工具
+            </p>
+          </motion.div>
+
+          {/* Agent cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {agentCards.map((agent, index) => (
+              <motion.div
+                key={agent.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={agent.available ? { scale: 1.03, y: -5 } : {}}
+                className={`bg-white p-6 rounded-2xl border-2 shadow-lg transition-all ${
+                  agent.available
+                    ? 'border-purple-200 hover:shadow-xl hover:border-purple-400'
+                    : 'border-gray-200'
+                }`}
+              >
+                <div className="text-4xl mb-4">{agent.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {agent.title}
+                </h3>
+                <p className="text-gray-600 mb-4 min-h-[3rem]">
+                  {agent.description}
+                </p>
+
+                {agent.available ? (
+                  <Link href={agent.href!}>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors"
+                    >
+                      立即体验
+                    </motion.button>
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="w-full px-4 py-2 bg-gray-300 text-gray-500 rounded-lg font-medium cursor-not-allowed"
+                  >
+                    即将上线
+                  </button>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
