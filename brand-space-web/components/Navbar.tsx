@@ -3,15 +3,27 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import LanguageSwitcher from './LanguageSwitcher';
+import { Locale } from '@/lib/i18n';
 
-export default function Navbar() {
+interface NavbarProps {
+  locale: Locale;
+  dict: {
+    home: string;
+    projects: string;
+    standards: string;
+    aiChat: string;
+  };
+}
+
+export default function Navbar({ locale, dict }: NavbarProps) {
   const pathname = usePathname();
 
   const navItems = [
-    { label: '首页', href: '/' },
-    { label: '项目案例', href: '/projects' },
-    { label: '设计标准', href: '/standards' },
-    { label: 'AI 助手', href: '/ai-chat' }
+    { label: dict.home, href: `/${locale}` },
+    { label: dict.projects, href: `/${locale}/projects` },
+    { label: dict.standards, href: `/${locale}/standards` },
+    { label: dict.aiChat, href: `/${locale}/ai-chat` }
   ];
 
   return (
@@ -54,10 +66,14 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <div className="ml-4">
+              <LanguageSwitcher currentLocale={locale} />
+            </div>
           </div>
 
           {/* 移动端菜单按钮 */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher currentLocale={locale} />
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

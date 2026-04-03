@@ -4,17 +4,21 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/data/projects';
+import { getLocalizedValue } from '@/lib/i18n';
+import { Locale } from '@/lib/i18n';
 
 interface ProjectHeroBlockProps {
   project: Project;
   index: number;
   imagePosition?: 'left' | 'right';
+  locale: Locale;
 }
 
 export default function ProjectHeroBlock({
   project,
   index,
-  imagePosition = index % 2 === 0 ? 'right' : 'left'
+  imagePosition = index % 2 === 0 ? 'right' : 'left',
+  locale
 }: ProjectHeroBlockProps) {
   // 交替背景色
   const bgColor = index % 2 === 0 ? 'bg-white' : 'bg-gray-50';
@@ -32,7 +36,7 @@ export default function ProjectHeroBlock({
       {project.image ? (
         <Image
           src={project.image}
-          alt={project.title}
+          alt={getLocalizedValue(project.title, locale) as unknown as string}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -58,23 +62,23 @@ export default function ProjectHeroBlock({
       {/* 分类标签 */}
       <div className="flex items-center gap-3">
         <span className="px-4 py-1.5 bg-blue-50 text-blue-700 text-sm font-medium rounded-full border border-blue-200">
-          {project.category}
+          {getLocalizedValue(project.category, locale) as unknown as string}
         </span>
         {project.tags && project.tags.slice(0, 2).map((tag, idx) => (
           <span key={idx} className="text-sm text-gray-500">
-            {tag}
+            {getLocalizedValue(tag, locale) as unknown as string}
           </span>
         ))}
       </div>
 
       {/* 标题 */}
       <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
-        {project.title}
+        {getLocalizedValue(project.title, locale) as unknown as string}
       </h2>
 
       {/* 描述 */}
       <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-        {project.description}
+        {getLocalizedValue(project.description, locale) as unknown as string}
       </p>
 
       {/* CTA 按钮 */}

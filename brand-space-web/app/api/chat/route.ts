@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import * as fs from 'fs';
 import * as path from 'path';
+import { identifyCompany, getSupportedCompanies } from '@/data/news-sources';
+import { fetchNewsFromUrls } from '@/lib/news-scraper';
+import { analyzeDesignNews } from '@/lib/ai-analyzer';
 
 // 加载设计标准手册数据
 function loadDesignStandards() {
@@ -120,8 +123,41 @@ export async function POST(request: NextRequest) {
     } else if (mode === 'case') {
       // 案例获取模式
       response = '我们的成功案例包括：\n• 上海前滩商城 - 展示现代化展厅设计\n• 长宁来福士广场 - 整体空间布局优化\n• 成都银泰城 - 零售空间设计标准\n• 宁波江北展厅 - 完整的品牌空间应用\n这些项目展示了我们在空间设计、品牌整合等方面的专业能力，可为您的项目提供参考。';
+    } else if (mode === 'design-news') {
+      // 设计新闻Agent模式
+      try {
+        console.log('🔍 识别公司中...');
+
+        // 1. 识别公司
+        const newsSource = identifyCompany(message);
+
+        if (!newsSource) {
+          response = `抱歉，目前支持的公司包括：${getSupportedCompanies()}。\n\n请尝试输入这些公司的名称，例如："apple" 或 "华为最近有什么设计动态？"`;
+        } else {
+          console.log(`✓ 识别为: ${newsSource.company}`);
+          console.log(`📡 开始爬取 ${newsSource.urls.length} 个新闻源...`);
+
+          // 2. 爬取新闻
+          const newsContent = await fetchNewsFromUrls(newsSource.urls);
+
+          console.log(`✓ 爬取完成，内容长度: ${newsContent.length}`);
+          console.log(`🤖 开始AI分析...`);
+
+          // 3. AI分析
+          response = await analyzeDesignNews(
+            newsContent,
+            newsSource.company,
+            newsSource.keywords
+          );
+
+          console.log(`✓ 分析完成`);
+        }
+      } catch (error) {
+        console.error('❌ 设计新闻Agent错误:', error);
+        response = `抱歉，获取设计新闻时出现错误：${error instanceof Error ? error.message : '未知错误'}。请稍后重试。`;
+      }
     } else {
-      response = '抱歉，暂未识别咨询模式。请选择设计标准咨询、设计趋势分析或案例获取。';
+      response = '抱歉，暂未识别咨询模式。请选择设计标准咨询、设计趋势分析、案例获取或设计新闻Agent。';
     }
 
     console.log('✅ 返回回复');

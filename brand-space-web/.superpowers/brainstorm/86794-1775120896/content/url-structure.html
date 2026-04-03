@@ -1,0 +1,155 @@
+<h2>URL 结构应该如何设计？</h2>
+<p class="subtitle">这影响 SEO、用户分享链接和技术实现</p>
+
+<div class="options">
+  <div class="option" data-choice="path-based" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>路径前缀方式</h3>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 16px 0;">
+        <div style="font-family: monospace; font-size: 14px; color: #475569;">
+          <div style="margin-bottom: 8px;"><strong>中文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 16px;">
+            https://yoursite.com/<br>
+            https://yoursite.com/projects<br>
+            https://yoursite.com/standards
+          </div>
+
+          <div style="margin-bottom: 8px;"><strong>英文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px;">
+            https://yoursite.com<span style="color: #3b82f6; font-weight: bold;">/en</span>/<br>
+            https://yoursite.com<span style="color: #3b82f6; font-weight: bold;">/en</span>/projects<br>
+            https://yoursite.com<span style="color: #3b82f6; font-weight: bold;">/en</span>/standards
+          </div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>SEO 最佳实践，搜索引擎友好</li>
+            <li>URL 清晰，用户一眼看出是英文版</li>
+            <li>便于管理不同语言的内容</li>
+            <li>支持 Next.js 国际化路由</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>需要配置路由系统</li>
+            <li>文件结构需要调整（或使用 i18n 中间件）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 4px; font-size: 14px;">
+        <strong>实现方式：</strong>使用 Next.js i18n 配置或中间件
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="subdomain" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>子域名方式</h3>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 16px 0;">
+        <div style="font-family: monospace; font-size: 14px; color: #475569;">
+          <div style="margin-bottom: 8px;"><strong>中文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 16px;">
+            https://yoursite.com/<br>
+            https://yoursite.com/projects
+          </div>
+
+          <div style="margin-bottom: 8px;"><strong>英文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px;">
+            https://<span style="color: #3b82f6; font-weight: bold;">en.</span>yoursite.com/<br>
+            https://<span style="color: #3b82f6; font-weight: bold;">en.</span>yoursite.com/projects
+          </div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>完全独立的站点，可以单独部署</li>
+            <li>SEO 效果好，可以针对不同市场优化</li>
+            <li>可以使用不同的服务器/CDN</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>需要配置 DNS 和 SSL 证书</li>
+            <li>维护两个站点，部署更复杂</li>
+            <li>对于小型项目来说过于复杂</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px; font-size: 14px;">
+        <strong>注意：</strong>适合大型多语言项目，对您的项目可能过于复杂
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="query-param" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>查询参数方式</h3>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 16px 0;">
+        <div style="font-family: monospace; font-size: 14px; color: #475569;">
+          <div style="margin-bottom: 8px;"><strong>中文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 16px;">
+            https://yoursite.com/<br>
+            https://yoursite.com/projects
+          </div>
+
+          <div style="margin-bottom: 8px;"><strong>英文版：</strong></div>
+          <div style="padding: 8px 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px;">
+            https://yoursite.com/<span style="color: #3b82f6; font-weight: bold;">?lang=en</span><br>
+            https://yoursite.com/projects<span style="color: #3b82f6; font-weight: bold;">?lang=en</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>实现最简单，不需要改路由</li>
+            <li>可以用 localStorage 记住用户偏好</li>
+            <li>不影响现有文件结构</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>SEO 不友好（搜索引擎可能视为重复内容）</li>
+            <li>URL 看起来不够专业</li>
+            <li>链接分享时可能丢失语言参数</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #f3f4f6; border-left: 4px solid #6b7280; border-radius: 4px; font-size: 14px;">
+        <strong>实现方式：</strong>使用 URL 参数 + localStorage 存储用户选择
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px; padding: 20px; background: #fefce8; border-radius: 8px; border: 1px solid #fde047;">
+  <h3 style="margin-top: 0;">💡 推荐</h3>
+  <p style="margin-bottom: 0;">对于您的品牌空间设计平台，强烈推荐 <strong>选项 A（路径前缀方式）</strong>：</p>
+  <ul style="margin-bottom: 0;">
+    <li>Next.js 内置支持，配置简单</li>
+    <li>SEO 最佳实践，有利于国际访客发现</li>
+    <li>URL 清晰专业，符合行业标准</li>
+    <li>便于未来扩展更多语言</li>
+  </ul>
+</div>

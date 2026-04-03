@@ -4,5 +4,66 @@
     "projects": "Projects",
     "standards": "Standards",
     "aiChat": "AI Assistant"
+  },
+  "projects": {
+    "title": "Project Portfolio",
+    "subtitle": "Browse our design standards applied in various projects",
+    "allProjects": "All Projects",
+    "noResults": "No projects in this category"
+  },
+  "projectDetail": {
+    "notFound": "Project Not Found",
+    "scrollDown": "Scroll Down",
+    "projectInfo": "Project Information",
+    "displayArea": "Display Area",
+    "projectLocation": "Project Location",
+    "time": "Time",
+    "solution": "Solution Overview",
+    "gallery": "Project Gallery",
+    "projectImage": "Project Image",
+    "image": "Image",
+    "browseMore": "Browse More Projects",
+    "viewOther": "View Other Projects"
+  },
+  "home": {
+    "hero": {
+      "title": "Brand Space Design Platform",
+      "subtitle": "Complete Design Standards System",
+      "description": "Explore our project portfolio, understand systematic design standards, and experience AI-powered design assistance"
+    },
+    "projects": {
+      "title": "Representative Projects",
+      "subtitle": "Selected representative projects from various categories →",
+      "viewAll": "View All Projects →",
+      "viewDetails": "View Details"
+    },
+    "standards": {
+      "title": "Complete Design Standards System",
+      "subtitle": "9 systematic design standard modules ensuring project consistency and compliance",
+      "viewAll": "View Complete Standards →",
+      "itemsCount": "key items"
+    },
+    "aiAssistant": {
+      "title": "AI Design Assistant",
+      "subtitle": "Intelligent design consultation and case retrieval tools to help you quickly understand and apply design standards",
+      "viewAll": "Launch AI Assistant →",
+      "features": {
+        "trends": {
+          "title": "Design Trends Analysis",
+          "description": "Analyze the latest design trends and market dynamics to provide references for your projects"
+        },
+        "consultation": {
+          "title": "Design Standards Consultation",
+          "description": "Quickly query and answer various questions about design standards"
+        },
+        "cases": {
+          "title": "Case Retrieval",
+          "description": "Intelligently recommend relevant successful cases and best practices"
+        }
+      }
+    },
+    "footer": {
+      "copyright": "© 2026 Brand Space Design Platform. All rights reserved."
+    }
   }
 }

@@ -1,0 +1,153 @@
+<h2>翻译功能应该如何工作？</h2>
+<p class="subtitle">选择最适合您网站的翻译实现方式</p>
+
+<div class="options">
+  <div class="option" data-choice="page-refresh" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>切换语言版本（页面刷新）</h3>
+      <p class="subtitle" style="margin-top: 8px; margin-bottom: 16px;">点击按钮后，页面刷新并加载英文版本</p>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 12px 0;">
+        <div style="font-family: monospace; font-size: 13px; color: #475569;">
+          <div>1️⃣ 用户点击 "🌐 EN" 按钮</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>2️⃣ URL 变为 /en/（或添加 ?lang=en）</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>3️⃣ 页面重新加载，显示英文内容</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>4️⃣ 按钮变为 "🌐 中文" 可以切换回来</div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>SEO 友好，搜索引擎可索引英文内容</li>
+            <li>可以为英文版本定制不同的内容</li>
+            <li>实现相对简单，适合静态内容</li>
+            <li>用户可以分享英文版本的链接</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>需要维护两套内容（中文和英文）</li>
+            <li>页面刷新会打断用户体验</li>
+            <li>需要手动翻译所有内容</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 4px;">
+        <strong>适合场景：</strong>需要专业翻译、内容较少、需要 SEO 的企业网站
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="ai-translation" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>AI 实时翻译（无需刷新）</h3>
+      <p class="subtitle" style="margin-top: 8px; margin-bottom: 16px;">点击按钮后，调用 AI API 实时翻译页面内容</p>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 12px 0;">
+        <div style="font-family: monospace; font-size: 13px; color: #475569;">
+          <div>1️⃣ 用户点击 "🌐 Translate to English" 按钮</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>2️⃣ JavaScript 提取页面中文内容</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>3️⃣ 调用 AI API（如 OpenAI/Claude）翻译</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>4️⃣ 动态替换页面文本，不刷新页面</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>5️⃣ 按钮变为 "🌐 显示中文"</div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>无需维护英文内容，自动翻译</li>
+            <li>用户体验流畅，无页面刷新</li>
+            <li>可以翻译动态生成的内容</li>
+            <li>支持多种目标语言（不只是英文）</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>需要调用 AI API（有成本）</li>
+            <li>翻译质量依赖 AI，可能不够准确</li>
+            <li>SEO 不友好（翻译内容不被索引）</li>
+            <li>首次翻译可能需要几秒钟</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 4px;">
+        <strong>适合场景：</strong>内容较多、更新频繁、已有 AI 基础设施的项目
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="browser-translation" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>浏览器内置翻译（引导）</h3>
+      <p class="subtitle" style="margin-top: 8px; margin-bottom: 16px;">按钮引导用户使用浏览器自带的翻译功能</p>
+
+      <div style="background: #f8fafc; padding: 16px; border-radius: 8px; margin: 12px 0;">
+        <div style="font-family: monospace; font-size: 13px; color: #475569;">
+          <div>1️⃣ 用户点击 "🌐 Translate Page" 按钮</div>
+          <div style="margin: 8px 0;">↓</div>
+          <div>2️⃣ 显示提示框：</div>
+          <div style="padding: 12px; background: white; border: 1px solid #e5e7eb; border-radius: 6px; margin: 8px 0;">
+            "请使用浏览器翻译功能：<br>
+            • Chrome: 右键 → 翻译为英文<br>
+            • Safari: 地址栏翻译图标<br>
+            • Edge: 右键 → 翻译"
+          </div>
+          <div>3️⃣ （可选）自动触发浏览器翻译 API</div>
+        </div>
+      </div>
+
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>完全免费，无需额外开发</li>
+            <li>翻译质量由浏览器保证</li>
+            <li>支持所有主流浏览器</li>
+            <li>零维护成本</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>用户体验最差，需要手动操作</li>
+            <li>不同浏览器操作方式不同</li>
+            <li>看起来不够专业</li>
+            <li>无法控制翻译质量</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px; padding: 12px; background: #f3f4f6; border-left: 4px solid #6b7280; border-radius: 4px;">
+        <strong>适合场景：</strong>预算有限、临时解决方案、不希望维护翻译内容
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top: 32px; padding: 20px; background: #fefce8; border-radius: 8px; border: 1px solid #fde047;">
+  <h3 style="margin-top: 0;">💡 推荐</h3>
+  <p style="margin-bottom: 0;">根据您的项目（品牌空间设计平台），建议选择 <strong>选项 A（切换语言版本）</strong>，因为：</p>
+  <ul style="margin-bottom: 0;">
+    <li>设计类网站需要专业、准确的术语翻译</li>
+    <li>内容相对固定，适合维护双语版本</li>
+    <li>SEO 友好，有助于国际访客找到网站</li>
+  </ul>
+</div>

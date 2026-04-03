@@ -1,0 +1,152 @@
+<h2>翻译按钮应该放在哪里？</h2>
+<p class="subtitle">考虑用户访问便利性和页面整体布局</p>
+
+<div class="options">
+  <div class="option" data-choice="navbar-right" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>导航栏右侧</h3>
+      <div class="mockup" style="margin: 16px 0;">
+        <div class="mock-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px;">
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px;"></div>
+            <span>首页</span>
+            <span>项目案例</span>
+            <span>设计标准</span>
+            <span>AI 助手</span>
+          </div>
+          <button class="mock-button" style="background: #3b82f6; color: white; padding: 8px 16px; border-radius: 8px; font-size: 14px;">🌐 EN</button>
+        </div>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>始终可见，任何页面都能看到</li>
+            <li>符合网站导航的常见模式</li>
+            <li>与其他导航元素保持一致</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>可能与菜单项混淆</li>
+            <li>占用导航栏空间</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="float-top-right" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>右上角浮动按钮</h3>
+      <div class="mockup" style="margin: 16px 0; position: relative; min-height: 200px; background: linear-gradient(to bottom, #f8fafc, #ffffff);">
+        <div class="mock-nav" style="padding: 12px 24px; border-bottom: 1px solid #e5e7eb;">
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px;"></div>
+            <span>首页</span>
+            <span>项目案例</span>
+          </div>
+        </div>
+        <button class="mock-button" style="position: absolute; top: 80px; right: 24px; background: white; color: #1f2937; padding: 10px 18px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-size: 14px; font-weight: 500;">🌐 English</button>
+        <div style="padding: 24px;">
+          <div class="placeholder" style="height: 100px;">页面内容区域</div>
+        </div>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>不干扰导航栏布局</li>
+            <li>位置固定，容易找到</li>
+            <li>视觉上更突出</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>可能遮挡部分内容</li>
+            <li>移动端可能不够友好</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="float-bottom-right" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>右下角浮动按钮</h3>
+      <div class="mockup" style="margin: 16px 0; position: relative; min-height: 200px; background: linear-gradient(to bottom, #f8fafc, #ffffff);">
+        <div class="mock-nav" style="padding: 12px 24px; border-bottom: 1px solid #e5e7eb;">
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px;"></div>
+            <span>首页</span>
+            <span>项目案例</span>
+          </div>
+        </div>
+        <div style="padding: 24px;">
+          <div class="placeholder" style="height: 100px;">页面内容区域</div>
+        </div>
+        <button class="mock-button" style="position: absolute; bottom: 24px; right: 24px; background: #3b82f6; color: white; padding: 12px 20px; border-radius: 50px; box-shadow: 0 4px 16px rgba(59,130,246,0.3); font-size: 14px; font-weight: 500;">🌐 EN</button>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>类似聊天按钮，用户习惯</li>
+            <li>不干扰页面顶部布局</li>
+            <li>始终可见（固定定位）</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>可能与其他浮动元素冲突</li>
+            <li>阅读长页面时可能遮挡内容</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="navbar-far-right" onclick="toggleSelect(this)">
+    <div class="letter">D</div>
+    <div class="content">
+      <h3>导航栏最右侧独立区域</h3>
+      <div class="mockup" style="margin: 16px 0;">
+        <div class="mock-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 24px;">
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <div style="width: 40px; height: 40px; background: #3b82f6; border-radius: 8px;"></div>
+            <span>首页</span>
+            <span>项目案例</span>
+            <span>设计标准</span>
+            <span>AI 助手</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px; padding-left: 24px; border-left: 1px solid #e5e7eb;">
+            <button class="mock-button" style="background: transparent; color: #1f2937; padding: 6px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px;">🌐 English</button>
+          </div>
+        </div>
+      </div>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>优点</h4>
+          <ul>
+            <li>清晰区分功能和导航</li>
+            <li>始终可见且不抢眼</li>
+            <li>扩展性好，可添加其他功能按钮</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>缺点</h4>
+          <ul>
+            <li>需要调整导航栏布局</li>
+            <li>小屏幕上可能挤压空间</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

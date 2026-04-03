@@ -12,7 +12,9 @@
       "Bash(Start-Sleep -Seconds 2)",
       "Skill(faas-deploy)",
       "Skill(faas-deploy:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: add locale-specific layout structure\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git add:*)"
     ]
   }
 }

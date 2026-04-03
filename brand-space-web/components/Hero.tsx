@@ -2,8 +2,20 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export default function Hero() {
+interface HeroProps {
+  dict: {
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+}
+
+export default function Hero({ dict }: HeroProps) {
+  const pathname = usePathname();
+  const locale = pathname.split('/')[1] || 'zh';
+
   return (
     <section className="relative w-full h-screen bg-white flex items-center justify-center overflow-hidden">
       {/* 背景渐变 - Apple风格 */}
@@ -70,7 +82,7 @@ export default function Hero() {
             className="inline-block"
           >
             <span className="inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">
-              品牌空间设计平台
+              {dict.title}
             </span>
           </motion.div>
 
@@ -81,11 +93,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight"
           >
-            品牌设计空间产品
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
-              标准体系
-            </span>
+            {dict.subtitle}
           </motion.h1>
 
           {/* 副标题 */}
@@ -95,7 +103,7 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
-            全面展示设计标准、落地项目案例以及 AI 驱动的设计助手
+            {dict.description}
           </motion.p>
 
           {/* 按钮组 */}
@@ -106,17 +114,17 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
-              href="/projects"
+              href={`/${locale}/projects`}
               className="group px-8 py-4 bg-blue-600 text-white rounded-full font-medium text-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
             >
-              浏览项目案例
+              {locale === 'zh' ? '浏览项目案例' : 'Browse Projects'}
               <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </Link>
             <Link
-              href="/standards"
+              href={`/${locale}/standards`}
               className="group px-8 py-4 bg-gray-100 text-gray-900 rounded-full font-medium text-lg transition-all duration-300 hover:bg-gray-200"
             >
-              查看设计标准
+              {locale === 'zh' ? '查看设计标准' : 'View Standards'}
             </Link>
           </motion.div>
         </motion.div>

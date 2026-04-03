@@ -26,7 +26,7 @@ export function getLocalizedValue<T = string>(
   locale: Locale
 ): T {
   if (isLocalizedString(value)) {
-    return value[locale] as T;
+    return value[locale] as unknown as T;
   }
   // Backward compatibility: if plain string, return as-is
   return value as T;
