@@ -20,8 +20,14 @@ interface ProjectsListClientProps {
 export default function ProjectsListClient({ locale, dict }: ProjectsListClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<LocalizedString | null>(null);
 
-  // 获取所有分类
-  const categories = Array.from(new Set(projects.map(p => p.category)));
+  // 获取所有分类（基于内容去重，而不是对象引用）
+  const categories = projects
+    .map(p => p.category)
+    .filter((category, index, self) =>
+      index === self.findIndex(c =>
+        c.zh === category.zh && c.en === category.en
+      )
+    );
 
   // 筛选项目
   const filteredProjects = selectedCategory
