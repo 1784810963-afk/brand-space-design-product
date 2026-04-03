@@ -16,7 +16,7 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
     const newLocale = currentLocale === 'zh' ? 'en' : 'zh';
 
     // Replace current locale in pathname
-    const newPathname = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    const newPathname = pathname.replace(new RegExp(`^/${currentLocale}(/|$)`), `/${newLocale}$1`);
 
     router.push(newPathname);
   };
