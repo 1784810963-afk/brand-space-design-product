@@ -1,18 +1,24 @@
+import type { LocalizedString } from '@/lib/i18n';
+
 // 项目数据类型定义
 export interface Project {
   id: string;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  tags: string[];
-  details: string;
-  highlights: string[];
+
+  // Bilingual fields (user-visible content)
+  title: LocalizedString;
+  description: LocalizedString;
+  details: LocalizedString;
+  category: LocalizedString;
+  tags: LocalizedString[];
+  highlights: LocalizedString[];
+
+  // Single-language fields (no translation needed)
   location?: string;
   area?: string;
   buildingTime?: string;
+  image: string;
   images?: string[];
-  isRepresentative?: boolean; // 是否为代表性案例（首页展示）
+  isRepresentative?: boolean;
 }
 
 // Feishu file_key 到本地图片路径的映射表
