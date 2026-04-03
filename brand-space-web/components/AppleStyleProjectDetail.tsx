@@ -5,14 +5,30 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState } from 'react';
 import { ChevronRight, MapPin, Ruler, Calendar, ArrowLeft, ChevronLeft, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import type { Project } from '@/data/projects';
+import { Locale, getLocalizedValue } from '@/lib/i18n';
 
 interface AppleStyleProjectDetailProps {
   project: Project;
+  locale: Locale;
+  dict: {
+    notFound: string;
+    scrollDown: string;
+    projectInfo: string;
+    displayArea: string;
+    projectLocation: string;
+    time: string;
+    solution: string;
+    gallery: string;
+    projectImage: string;
+    image: string;
+    browseMore: string;
+    viewOther: string;
+  };
 }
 
-export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDetailProps) {
+export default function AppleStyleProjectDetail({ project, locale, dict }: AppleStyleProjectDetailProps) {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState<boolean>(false);
@@ -80,7 +96,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
         >
           <Image
             src={allImages[0] || project.image}
-            alt={project.title}
+            alt={getLocalizedValue<string>(project.title, locale)}
             fill
             className="object-cover"
             priority
@@ -97,11 +113,11 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
           className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
-            {project.title}
+            {getLocalizedValue<string>(project.title, locale)}
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-            {project.description}
+            {getLocalizedValue<string>(project.description, locale)}
           </p>
         </motion.div>
 
@@ -111,7 +127,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 z-10"
         >
-          <div className="text-white/50 text-xs">向下滚动</div>
+          <div className="text-white/50 text-xs">{dict.scrollDown}</div>
           <div className="h-6 border-l border-white/30 flex justify-center">
             <div className="w-0.5 h-2 bg-white/50" />
           </div>
@@ -129,7 +145,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-light mb-12 text-slate-900">
-              项目信息
+              {dict.projectInfo}
             </h2>
 
             {/* 信息卡片网格 */}
@@ -146,7 +162,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
                   <div className="flex items-start gap-4">
                     <Ruler className="w-5 h-5 text-slate-900 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-sm text-slate-500 mb-1">展示面积</p>
+                      <p className="text-sm text-slate-500 mb-1">{dict.displayArea}</p>
                       <p className="text-2xl font-light text-slate-900">{project.area}</p>
                     </div>
                   </div>
@@ -165,7 +181,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
                   <div className="flex items-start gap-4">
                     <MapPin className="w-5 h-5 text-slate-900 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-sm text-slate-500 mb-1">项目位置</p>
+                      <p className="text-sm text-slate-500 mb-1">{dict.projectLocation}</p>
                       <p className="text-2xl font-light text-slate-900">{project.location}</p>
                     </div>
                   </div>
@@ -184,7 +200,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
                   <div className="flex items-start gap-4">
                     <Calendar className="w-5 h-5 text-slate-900 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-sm text-slate-500 mb-1">时间</p>
+                      <p className="text-sm text-slate-500 mb-1">{dict.time}</p>
                       <p className="text-2xl font-light text-slate-900">{project.buildingTime}</p>
                     </div>
                   </div>
@@ -202,10 +218,10 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
                 className="border-t border-slate-200 pt-12"
               >
                 <h3 className="text-2xl font-light mb-6 text-slate-900">
-                  方案介绍
+                  {dict.solution}
                 </h3>
                 <div className="space-y-6">
-                  {project.details.split('\n\n').map((paragraph, index) => (
+                  {getLocalizedValue<string>(project.details, locale).split('\n\n').map((paragraph, index) => (
                     <p key={index} className="text-lg text-slate-600 leading-relaxed">
                       {paragraph}
                     </p>
@@ -228,7 +244,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
               viewport={{ once: true }}
               className="text-4xl md:text-5xl font-light mb-12 text-slate-900"
             >
-              项目图册
+              {dict.gallery}
             </motion.h2>
 
             {/* 图片网格 */}
@@ -245,7 +261,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
                 >
                   <Image
                     src={image}
-                    alt={`项目图片 ${index + 1}`}
+                    alt={`${dict.projectImage} ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     quality={80}
@@ -268,14 +284,14 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-light mb-8 text-slate-900">
-            浏览更多项目
+            {dict.browseMore}
           </h2>
 
           <Link
-            href="/projects"
+            href={`/${locale}/projects`}
             className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-colors cursor-pointer"
           >
-            查看其他项目
+            {dict.viewOther}
             <ChevronRight className="w-4 h-4" />
           </Link>
         </motion.div>
@@ -333,7 +349,7 @@ export default function AppleStyleProjectDetail({ project }: AppleStyleProjectDe
           >
             <Image
               src={allImages[lightboxIndex]}
-              alt={`${project.title} - 图片 ${lightboxIndex + 1}`}
+              alt={`${getLocalizedValue<string>(project.title, locale)} - ${dict.image} ${lightboxIndex + 1}`}
               width={1920}
               height={1080}
               className="w-full h-auto max-h-[90vh] object-contain"
