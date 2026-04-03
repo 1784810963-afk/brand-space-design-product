@@ -205,17 +205,26 @@ const rawProjects: Project[] = [
   // 门店空间设计 - 高级店
   {
     id: 'project-0',
-    title: '北京华贸零售中心',
-    description: '面积777㎡的高级店设计,展现品牌旗舰形象',
+    title: { zh: '北京华贸零售中心', en: 'Beijing Huamao Retail Center' },
+    description: { zh: '面积777㎡的高级店设计,展现品牌旗舰形象', en: '777㎡ Premium Store design showcasing brand flagship image' },
+    details: { zh: '北京华贸零售中心作为高级店的典范,占地777㎡,位于北京核心商圈。通过精心的空间设计和品牌标准的应用,为客户打造了极致的购物体验。设计充分展现了品牌的高端定位和创新理念。', en: 'Beijing Huamao Retail Center stands as a model of Premium Store design, occupying 777㎡ in Beijing\'s core business district. Through meticulous spatial design and application of brand standards, it creates an ultimate shopping experience for customers. The design fully demonstrates the brand\'s premium positioning and innovative philosophy.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1c97804b-80ab-4caa-9b5c-51569324b6ec.jpg',
-    category: '零售空间',
-    tags: ['高级店', '北京', '华贸'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '高级店', en: 'Premium Store' },
+      { zh: '北京', en: 'Beijing' },
+      { zh: '华贸', en: 'Huamao' }
+    ],
+    highlights: [
+      { zh: '旗舰店设计', en: 'Flagship store design' },
+      { zh: '核心商圈', en: 'Core business district' },
+      { zh: '极致体验', en: 'Ultimate experience' },
+      { zh: '高端定位', en: 'Premium positioning' }
+    ],
     location: '北京市朝阳区建国路89号院华贸商业街11号楼L03号',
     area: '777㎡',
     buildingTime: '2024/01/27',
     isRepresentative: true,
-    details: '北京华贸零售中心作为高级店的典范,占地777㎡,位于北京核心商圈。通过精心的空间设计和品牌标准的应用,为客户打造了极致的购物体验。设计充分展现了品牌的高端定位和创新理念。',
-    highlights: ['旗舰店设计', '核心商圈', '极致体验', '高端定位'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1c97804b-80ab-4caa-9b5c-51569324b6ec.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/75dd37d5-fd63-4b6b-af5c-892c025fd8f5.jpg',
@@ -234,16 +243,25 @@ const rawProjects: Project[] = [
   // 门店空间设计 - 零售空间
   {
     id: 'project-1',
-    title: '上海前滩L+PLAZA零售中心',
-    description: '面积528㎡的高级店设计，打造科技与家庭融合的极致体验',
+    title: { zh: '上海前滩L+PLAZA零售中心', en: 'Shanghai Qiantan L+PLAZA Retail Center' },
+    description: { zh: '面积528㎡的高级店设计,打造科技与家庭融合的极致体验', en: '528㎡ Premium Store design creating ultimate experience blending technology and home' },
+    details: { zh: '上海前滩L+PLAZA零售中心外立面采用通透玻璃结构,打通室内和室外空间,形成丰富的空间体验动线。室内着重为用户提供极佳的功能区体验感,家具强调品质细节。店内整体以暖色调为基础,具有温暖触感的胡桃木色作为主色、辅以深沉的暖金色,既营造出家的温暖又凸显产品的豪华感。专业的场景氛围灯光设计,让整个空间舒适温馨。', en: 'Shanghai Qiantan L+PLAZA Retail Center features a transparent glass facade that connects indoor and outdoor spaces, creating rich spatial experience flow. The interior focuses on providing excellent functional area experience, with furniture emphasizing quality details. The store uses warm tones as the base, featuring warm walnut as the main color complemented by deep warm gold, creating both a warm home-like atmosphere and highlighting product luxury. Professional ambient lighting design makes the entire space comfortable and welcoming.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/28126bc6-1b79-46a8-9a9b-1620eb9ac8c2.jpg',
-    category: '零售空间',
-    tags: ['高级店', '科技感', '温暖调性'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '高级店', en: 'Premium Store' },
+      { zh: '科技感', en: 'Tech feel' },
+      { zh: '温暖调性', en: 'Warm tone' }
+    ],
+    highlights: [
+      { zh: '通透玻璃结构', en: 'Transparent glass structure' },
+      { zh: '暖色调设计', en: 'Warm tone design' },
+      { zh: '极致视觉体验', en: 'Ultimate visual experience' },
+      { zh: '灯光设计专业', en: 'Professional lighting design' }
+    ],
     location: '上海市浦东新区东育路345号1层07、08单元',
     area: '528㎡',
     isRepresentative: true, // 零售空间代表性案例
-    details: '上海前滩L+PLAZA零售中心外立面采用通透玻璃结构，打通室内和室外空间，形成丰富的空间体验动线。室内着重为用户提供极佳的功能区体验感，家具强调品质细节。店内整体以暖色调为基础，具有温暖触感的胡桃木色作为主色、辅以深沉的暖金色，既营造出家的温暖又凸显产品的豪华感。专业的场景氛围灯光设计，让整个空间舒适温馨。',
-    highlights: ['通透玻璃结构', '暖色调设计', '极致视觉体验', '灯光设计专业'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/28126bc6-1b79-46a8-9a9b-1620eb9ac8c2.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/b28dd5c5-de7e-49dc-a73d-1425f89c4a65.jpg',
@@ -252,15 +270,24 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-2',
-    title: '上海长宁来福士门店',
-    description: '面积392㎡的高级店设计，打造品牌形象展示的重要窗口',
+    title: { zh: '上海长宁来福士门店', en: 'Shanghai Changning Raffles City Store' },
+    description: { zh: '面积392㎡的高级店设计,打造品牌形象展示的重要窗口', en: '392㎡ Premium Store design creating important window for brand image display' },
+    details: { zh: '上海长宁来福士门店作为高级店设计范例,充分展现了品牌的品质与风格。通过精心的空间规划和设计标准应用,为客户营造了舒适、专业的购物体验。店铺设计融合了品牌的核心价值理念,完美体现了设计标准中的视觉规范、照明设计和标识系统的应用。', en: 'Shanghai Changning Raffles City Store serves as a Premium Store design example, fully demonstrating brand quality and style. Through meticulous spatial planning and design standard application, it creates a comfortable and professional shopping experience for customers. The store design integrates brand core values, perfectly reflecting visual guidelines, lighting design, and wayfinding system application from design standards.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
-    category: '零售空间',
-    tags: ['高级店', '来福士', '上海'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '高级店', en: 'Premium Store' },
+      { zh: '来福士', en: 'Raffles City' },
+      { zh: '上海', en: 'Shanghai' }
+    ],
+    highlights: [
+      { zh: '高级店范例', en: 'Premium Store example' },
+      { zh: '空间规划优化', en: 'Spatial planning optimization' },
+      { zh: '品牌风格展现', en: 'Brand style display' },
+      { zh: '购物体验优化', en: 'Shopping experience optimization' }
+    ],
     location: '上海市长宁区长宁路1191号长宁来福士西区1楼北门',
     area: '392㎡',
-    details: '上海长宁来福士门店作为高级店设计范例，充分展现了品牌的品质与风格。通过精心的空间规划和设计标准应用，为客户营造了舒适、专业的购物体验。店铺设计融合了品牌的核心价值理念，完美体现了设计标准中的视觉规范、照明设计和标识系统的应用。',
-    highlights: ['高级店范例', '空间规划优化', '品牌风格展现', '购物体验优化'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/3d04d58f-8115-46ae-aa1c-98284f08f839.jpg',
@@ -269,16 +296,25 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-2-5',
-    title: '北京祥云小镇零售中心',
-    description: '面积1114㎡的高级店设计,展现大型零售空间的品牌魅力',
+    title: { zh: '北京祥云小镇零售中心', en: 'Beijing Xiangyun Town Retail Center' },
+    description: { zh: '面积1114㎡的高级店设计,展现大型零售空间的品牌魅力', en: '1114㎡ Premium Store design showcasing brand charm of large retail space' },
+    details: { zh: '北京祥云小镇零售中心是大型高级店的代表,占地1114㎡。通过精心的空间规划和品牌标准的应用,为客户打造了开阔舒适的购物环境。设计充分体现了品牌的高端定位和服务理念。', en: 'Beijing Xiangyun Town Retail Center represents large Premium Store design, occupying 1114㎡. Through meticulous spatial planning and brand standard application, it creates an open and comfortable shopping environment for customers. The design fully demonstrates brand premium positioning and service philosophy.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/d9e14c98-2c13-426e-a752-0cc05c9aba9e.jpg',
-    category: '零售空间',
-    tags: ['高级店', '北京', '祥云小镇'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '高级店', en: 'Premium Store' },
+      { zh: '北京', en: 'Beijing' },
+      { zh: '祥云小镇', en: 'Xiangyun Town' }
+    ],
+    highlights: [
+      { zh: '大型高级店', en: 'Large Premium Store' },
+      { zh: '开阔空间', en: 'Open space' },
+      { zh: '舒适环境', en: 'Comfortable environment' },
+      { zh: '品牌定位', en: 'Brand positioning' }
+    ],
     location: '北京市顺义区安泰大街9号院中粮·祥云小镇4号楼1层',
     area: '1114㎡',
     buildingTime: '2024/10/31',
-    details: '北京祥云小镇零售中心是大型高级店的代表,占地1114㎡。通过精心的空间规划和品牌标准的应用,为客户打造了开阔舒适的购物环境。设计充分体现了品牌的高端定位和服务理念。',
-    highlights: ['大型高级店', '开阔空间', '舒适环境', '品牌定位'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/d9e14c98-2c13-426e-a752-0cc05c9aba9e.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/1e273090-226d-4f4e-bb3d-3bc1a8deccdc.jpg',
@@ -289,16 +325,25 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-2-6',
-    title: '北京来广营零售中心',
-    description: '面积2106㎡的高级店设计,打造旗舰级购物体验',
+    title: { zh: '北京来广营零售中心', en: 'Beijing Laiguangying Retail Center' },
+    description: { zh: '面积2106㎡的高级店设计,打造旗舰级购物体验', en: '2106㎡ Premium Store design creating flagship-level shopping experience' },
+    details: { zh: '北京来广营零售中心是超大型高级店的典范,占地2106㎡。作为旗舰级零售空间,通过精心的设计和完善的服务设施,为客户提供了极致的购物体验。空间设计充分体现了品牌的规模优势和服务能力。', en: 'Beijing Laiguangying Retail Center is a model of super-large Premium Store design, occupying 2106㎡. As a flagship-level retail space, through meticulous design and comprehensive service facilities, it provides an ultimate shopping experience for customers. The spatial design fully demonstrates brand scale advantage and service capability.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e2a9452b-dbb3-4860-abd2-7bd35460aa0b.jpg',
-    category: '零售空间',
-    tags: ['高级店', '北京', '来广营'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '高级店', en: 'Premium Store' },
+      { zh: '北京', en: 'Beijing' },
+      { zh: '来广营', en: 'Laiguangying' }
+    ],
+    highlights: [
+      { zh: '旗舰级店铺', en: 'Flagship-level store' },
+      { zh: '超大空间', en: 'Super-large space' },
+      { zh: '完善设施', en: 'Comprehensive facilities' },
+      { zh: '极致体验', en: 'Ultimate experience' }
+    ],
     location: '北京市朝阳区来广营乡顾家庄桥北293米路西',
     area: '2106㎡',
     buildingTime: '2024/05/28',
-    details: '北京来广营零售中心是超大型高级店的典范,占地2106㎡。作为旗舰级零售空间,通过精心的设计和完善的服务设施,为客户提供了极致的购物体验。空间设计充分体现了品牌的规模优势和服务能力。',
-    highlights: ['旗舰级店铺', '超大空间', '完善设施', '极致体验'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e2a9452b-dbb3-4860-abd2-7bd35460aa0b.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/049194a5-9127-40c1-84f3-e0ae0565537d.jpg',
@@ -309,15 +354,24 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-3',
-    title: '成都银泰城零售中心',
-    description: '面积260㎡的标准店设计，体现设计标准的规范应用',
+    title: { zh: '成都银泰城零售中心', en: 'Chengdu Intime City Retail Center' },
+    description: { zh: '面积260㎡的标准店设计,体现设计标准的规范应用', en: '260㎡ Standard Store design reflecting standardized application of design standards' },
+    details: { zh: '成都银泰城零售中心项目充分体现了设计标准在零售空间中的完整应用。通过系统的设计方法论,为品牌打造了统一的视觉体验和优化的空间布局。项目注重品牌识别一致性、空间规划和材料应用,提升了客户的购物体验。', en: 'Chengdu Intime City Retail Center project fully demonstrates the complete application of design standards in retail space. Through systematic design methodology, it creates unified visual experience and optimized spatial layout for the brand. The project emphasizes brand identity consistency, spatial planning, and material application, enhancing customer shopping experience.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/5ec81e5c-243c-4825-92b2-2775425a4bbe.jpg',
-    category: '零售空间',
-    tags: ['标准店', '规范', '成都'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '标准店', en: 'Standard Store' },
+      { zh: '规范', en: 'Standardized' },
+      { zh: '成都', en: 'Chengdu' }
+    ],
+    highlights: [
+      { zh: '标准化应用', en: 'Standardized application' },
+      { zh: '空间布局优化', en: 'Spatial layout optimization' },
+      { zh: '品牌一致性', en: 'Brand consistency' },
+      { zh: '客户体验提升', en: 'Customer experience enhancement' }
+    ],
     location: '四川省成都市武侯区益州大道中段1999号银泰城2号门',
     area: '260㎡',
-    details: '成都银泰城零售中心项目充分体现了设计标准在零售空间中的完整应用。通过系统的设计方法论，为品牌打造了统一的视觉体验和优化的空间布局。项目注重品牌识别一致性、空间规划和材料应用，提升了客户的购物体验。',
-    highlights: ['标准化应用', '空间布局优化', '品牌一致性', '客户体验提升'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/5ec81e5c-243c-4825-92b2-2775425a4bbe.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/18eb00e6-58f2-4b73-801d-bdc83f5f3995.jpg',
@@ -326,15 +380,24 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-4',
-    title: '宁波江北综合中心',
-    description: '面积926㎡的标准店设计，展现多层次空间体验',
+    title: { zh: '宁波江北综合中心', en: 'Ningbo Jiangbei Comprehensive Center' },
+    description: { zh: '面积926㎡的标准店设计,展现多层次空间体验', en: '926㎡ Standard Store design showcasing multi-level spatial experience' },
+    details: { zh: '宁波江北综合中心是大型零售空间的典范,面积926㎡。通过精妙的空间分区和布局规划,营造了多层次的购物体验。项目充分运用设计标准的各项原则,从外观设计、室内布局、照明系统到标识导向,打造了高效而舒适的零售环境。', en: 'Ningbo Jiangbei Comprehensive Center is a model of large retail space, covering 926㎡. Through ingenious spatial zoning and layout planning, it creates a multi-level shopping experience. The project fully applies various principles of design standards, from exterior design, interior layout, lighting system to wayfinding, creating an efficient and comfortable retail environment.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/c08f2e43-9d7c-481c-8cd7-2d81990b6c03.jpg',
-    category: '零售空间',
-    tags: ['标准店', '综合中心', '宁波'],
+    category: { zh: '零售空间', en: 'Retail Space' },
+    tags: [
+      { zh: '标准店', en: 'Standard Store' },
+      { zh: '综合中心', en: 'Comprehensive Center' },
+      { zh: '宁波', en: 'Ningbo' }
+    ],
+    highlights: [
+      { zh: '大面积设计', en: 'Large area design' },
+      { zh: '多层次体验', en: 'Multi-level experience' },
+      { zh: '空间分区合理', en: 'Reasonable spatial zoning' },
+      { zh: '购物环境优化', en: 'Shopping environment optimization' }
+    ],
     location: '浙江省宁波市江北区江北大道395号193幢1-3',
     area: '926㎡',
-    details: '宁波江北综合中心是大型零售空间的典范，面积926㎡。通过精妙的空间分区和布局规划，营造了多层次的购物体验。项目充分运用设计标准的各项原则，从外观设计、室内布局、照明系统到标识导向，打造了高效而舒适的零售环境。',
-    highlights: ['大面积设计', '多层次体验', '空间分区合理', '购物环境优化'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/c08f2e43-9d7c-481c-8cd7-2d81990b6c03.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/538a2e94-00fe-4c57-be74-dbc3d2866c7a.jpg',
@@ -344,16 +407,25 @@ const rawProjects: Project[] = [
   // 配套空间
   {
     id: 'project-5',
-    title: '北京展厅接待空间设计',
-    description: '面积833㎡的展厅设计，打造专业的品牌接待环境',
+    title: { zh: '北京展厅接待空间设计', en: 'Beijing Exhibition Hall Reception Space Design' },
+    description: { zh: '面积833㎡的展厅设计,打造专业的品牌接待环境', en: '833㎡ exhibition hall design creating professional brand reception environment' },
+    details: { zh: '北京展厅是品牌形象展示的重要窗口。通过精心的空间规划和设计标准应用,打造了专业、高效的接待环境。融合了品牌的核心价值理念,为访客提供了沉浸式的品牌体验。充分体现了设计标准中的视觉规范、照明设计和标识系统的应用。', en: 'Beijing Exhibition Hall serves as an important window for brand image display. Through meticulous spatial planning and design standard application, it creates a professional and efficient reception environment. Integrating brand core values, it provides visitors with an immersive brand experience. It fully reflects the application of visual guidelines, lighting design, and wayfinding system from design standards.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/6e077cef-09c2-4a85-8e14-7e079e361bb7.jpg',
-    category: '配套空间',
-    tags: ['展厅', '接待空间', '北京'],
+    category: { zh: '配套空间', en: 'Supporting Space' },
+    tags: [
+      { zh: '展厅', en: 'Exhibition Hall' },
+      { zh: '接待空间', en: 'Reception Space' },
+      { zh: '北京', en: 'Beijing' }
+    ],
+    highlights: [
+      { zh: '专业接待环境', en: 'Professional reception environment' },
+      { zh: '沉浸式体验', en: 'Immersive experience' },
+      { zh: '视觉规范应用', en: 'Visual guidelines application' },
+      { zh: '标识系统完善', en: 'Comprehensive wayfinding system' }
+    ],
     location: '北京市',
     area: '833㎡',
     isRepresentative: true, // 配套空间代表性案例
-    details: '北京展厅是品牌形象展示的重要窗口。通过精心的空间规划和设计标准应用，打造了专业、高效的接待环境。融合了品牌的核心价值理念，为访客提供了沉浸式的品牌体验。充分体现了设计标准中的视觉规范、照明设计和标识系统的应用。',
-    highlights: ['专业接待环境', '沉浸式体验', '视觉规范应用', '标识系统完善'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/6e077cef-09c2-4a85-8e14-7e079e361bb7.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/e5298397-8426-46c5-8f88-95d7229b15a0.jpg',
@@ -363,17 +435,26 @@ const rawProjects: Project[] = [
   // 活动空间设计
   {
     id: 'project-6',
-    title: '上海国际车展',
-    description: '面积1620㎡的大型活动空间，现场搭建7天',
+    title: { zh: '上海国际车展', en: 'Shanghai International Auto Show' },
+    description: { zh: '面积1620㎡的大型活动空间,现场搭建7天', en: '1620㎡ large event space, 7-day on-site construction' },
+    details: { zh: '上海国际车展 MEGA 展区是大型活动空间设计的典范。占地面积1620㎡,通过精心的设计规划和快速搭建能力,在7天内完成现场搭建。展区充分展现了品牌的创新理念和产品特色,为参观者营造了沉浸式的产品体验。', en: 'Shanghai International Auto Show MEGA Exhibition Zone is a model of large event space design. Covering 1620㎡, through meticulous design planning and rapid construction capability, on-site setup was completed in 7 days. The exhibition zone fully demonstrates brand innovation philosophy and product features, creating an immersive product experience for visitors.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/ebf7be14-1e15-4cc3-9192-5fedf1552b7b.jpg',
-    category: '活动空间',
-    tags: ['车展', '活动空间', '上海'],
+    category: { zh: '活动空间', en: 'Event Space' },
+    tags: [
+      { zh: '车展', en: 'Auto Show' },
+      { zh: '活动空间', en: 'Event Space' },
+      { zh: '上海', en: 'Shanghai' }
+    ],
+    highlights: [
+      { zh: '大型展区设计', en: 'Large exhibition zone design' },
+      { zh: '快速搭建能力', en: 'Rapid construction capability' },
+      { zh: '沉浸式体验', en: 'Immersive experience' },
+      { zh: '产品展示优化', en: 'Product display optimization' }
+    ],
     location: '上海国际车展',
     area: '1620㎡',
     buildingTime: '现场搭建7天',
     isRepresentative: true, // 活动空间代表性案例
-    details: '上海国际车展 MEGA 展区是大型活动空间设计的典范。占地面积1620㎡，通过精心的设计规划和快速搭建能力，在7天内完成现场搭建。展区充分展现了品牌的创新理念和产品特色，为参观者营造了沉浸式的产品体验。',
-    highlights: ['大型展区设计', '快速搭建能力', '沉浸式体验', '产品展示优化'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/ebf7be14-1e15-4cc3-9192-5fedf1552b7b.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/0fbf69e2-0f40-4d1e-8536-6716d8715c15.jpg',
@@ -382,16 +463,25 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-7',
-    title: '2025双旗舰巡展',
-    description: '理想同学环游季',
+    title: { zh: '2025双旗舰巡展', en: '2025 Dual Flagship Tour' },
+    description: { zh: '理想同学环游季', en: 'LiXiang Companion Tour Season' },
+    details: { zh: '承接理想MEGA Home家庭特别版、理想L9 Ultra智能焕新版切换热度,打造线下专属IP巡展内容,提升重点城市的品牌曝光度,促进销售。\n\n以"理想同学环游季"为主题,开启理想同学在物理世界的初次远行,以"飞屋"连接四城:北京(蓝色港湾)、上海(武康路)、深圳(万象天地)、青岛(万象城),不断延申家的边界,并在每座城市学习当地生活灵感,结识更多朋友。', en: 'Building on the momentum of LiXiang MEGA Home Special Edition and LiXiang L9 Ultra Smart Refresh Edition, we create offline exclusive IP tour content, enhancing brand exposure in key cities and driving sales.\n\nThemed "LiXiang Companion Tour Season," we launch the first physical world journey of LiXiang Companion, connecting four cities with "Flying House": Beijing (Solana), Shanghai (Wukang Road), Shenzhen (MixC World), and Qingdao (MixC), continuously extending the boundaries of home, drawing local life inspiration in each city, and making new friends.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2f175aab-8e37-4e18-8ed3-65b965996223.jpg',
-    category: '活动空间',
-    tags: ['巡展', 'MEGA HOME', '北京'],
+    category: { zh: '活动空间', en: 'Event Space' },
+    tags: [
+      { zh: '巡展', en: 'Tour' },
+      { zh: 'MEGA HOME', en: 'MEGA HOME' },
+      { zh: '北京', en: 'Beijing' }
+    ],
+    highlights: [
+      { zh: '高品质展示', en: 'High-quality display' },
+      { zh: '精细制作工艺', en: 'Fine craftsmanship' },
+      { zh: '快速反应能力', en: 'Rapid response capability' },
+      { zh: '品牌展现专业', en: 'Professional brand presentation' }
+    ],
     location: '首站：北京-蓝色港湾',
     area: '150㎡',
     buildingTime: '2025/05/16',
-    details: '承接理想MEGA Home家庭特别版、理想L9 Ultra智能焕新版切换热度，打造线下专属IP巡展内容，提升重点城市的品牌曝光度，促进销售。\n\n以"理想同学环游季"为主题，开启理想同学在物理世界的初次远行，以"飞屋"连接四城：北京（蓝色港湾）、上海（武康路）、深圳（万象天地）、青岛（万象城），不断延申家的边界，并在每座城市学习当地生活灵感，结识更多朋友。',
-    highlights: ['高品质展示', '精细制作工艺', '快速反应能力', '品牌展现专业'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/2f175aab-8e37-4e18-8ed3-65b965996223.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/8164c2fb-09b7-4a09-8be7-ed6fac28c94c.jpg',
@@ -411,16 +501,25 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-8',
-    title: 'MEGA 动静态展 - 阿那亚',
-    description: '面积100㎡的外展空间，制作15天+搭建4天',
+    title: { zh: 'MEGA 动静态展 - 阿那亚', en: 'MEGA Dynamic & Static Exhibition - Aranya' },
+    description: { zh: '面积100㎡的外展空间,制作15天+搭建4天', en: '100㎡ outdoor exhibition space, 15-day production + 4-day construction' },
+    details: { zh: 'MEGA 动静态展览在阿那亚的呈现,充分体现了品牌的创意与创新。占地100㎡的展示空间,通过15天的精细制作和4天的现场搭建,打造了融动态与静态元素于一身的沉浸式展览体验。', en: 'The presentation of MEGA Dynamic & Static Exhibition at Aranya fully demonstrates brand creativity and innovation. Occupying 100㎡ of exhibition space, through 15 days of meticulous production and 4 days of on-site construction, it creates an immersive exhibition experience blending dynamic and static elements.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/a17ac9de-050f-4a59-b3ec-40a7b60f37c4.jpg',
-    category: '活动空间',
-    tags: ['外展', '动静态展', '阿那亚'],
+    category: { zh: '活动空间', en: 'Event Space' },
+    tags: [
+      { zh: '外展', en: 'Outdoor Exhibition' },
+      { zh: '动静态展', en: 'Dynamic & Static Exhibition' },
+      { zh: '阿那亚', en: 'Aranya' }
+    ],
+    highlights: [
+      { zh: '创意展示设计', en: 'Creative display design' },
+      { zh: '动静结合', en: 'Dynamic and static combination' },
+      { zh: '沉浸式体验', en: 'Immersive experience' },
+      { zh: '工艺精细', en: 'Fine craftsmanship' }
+    ],
     location: '阿那亚',
     area: '100㎡',
     buildingTime: '制作15天，现场搭建4天',
-    details: 'MEGA 动静态展览在阿那亚的呈现，充分体现了品牌的创意与创新。占地100㎡的展示空间，通过15天的精细制作和4天的现场搭建，打造了融动态与静态元素于一身的沉浸式展览体验。',
-    highlights: ['创意展示设计', '动静结合', '沉浸式体验', '工艺精细'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/a17ac9de-050f-4a59-b3ec-40a7b60f37c4.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/c410a26a-afe0-4847-a5e4-6642056eaf5f.jpg',
@@ -430,13 +529,22 @@ const rawProjects: Project[] = [
   // 创意专项设计
   {
     id: 'project-9',
-    title: '漆板展示设计',
-    description: '创意专项设计 - 漆板颜色展示与选装指南',
+    title: { zh: '漆板展示设计', en: 'Paint Panel Display Design' },
+    description: { zh: '创意专项设计 - 漆板颜色展示与选装指南', en: 'Creative Special Project Design - Paint Panel Color Display and Installation Guide' },
+    details: { zh: '漆板展示设计包括基础色+内饰和特殊色两个展板。文字信息铭牌、漆板、内饰均为活动式,可根据展车上新进行灵活替换。这一创意设计充分体现了品牌对细节的关注和设计的灵活性。', en: 'The paint panel display design includes two display boards: base colors + interior and special colors. Text information plaques, paint panels, and interior components are all removable and can be flexibly replaced as new vehicles are displayed. This creative design fully demonstrates brand attention to detail and design flexibility.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/398a8a5b-e5b7-4269-8b20-c78d95040b2b.jpg',
-    category: '创意专项',
-    tags: ['漆板展示', '创意设计', '颜色展示'],
-    details: '漆板展示设计包括基础色+内饰和特殊色两个展板。文字信息铭牌、漆板、内饰均为活动式，可根据展车上新进行灵活替换。这一创意设计充分体现了品牌对细节的关注和设计的灵活性。',
-    highlights: ['活动式设计', '灵活替换', '颜色展示完整', '客户指导专业'],
+    category: { zh: '创意专项', en: 'Creative Projects' },
+    tags: [
+      { zh: '漆板展示', en: 'Paint Panel Display' },
+      { zh: '创意设计', en: 'Creative Design' },
+      { zh: '颜色展示', en: 'Color Display' }
+    ],
+    highlights: [
+      { zh: '活动式设计', en: 'Removable design' },
+      { zh: '灵活替换', en: 'Flexible replacement' },
+      { zh: '颜色展示完整', en: 'Complete color display' },
+      { zh: '客户指导专业', en: 'Professional customer guidance' }
+    ],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/398a8a5b-e5b7-4269-8b20-c78d95040b2b.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/15d8af26-89fc-4544-9513-422f3bf08a40.jpg',
@@ -446,14 +554,23 @@ const rawProjects: Project[] = [
   },
   {
     id: 'project-10',
-    title: '智能眼镜陈列设计',
-    description: '创意专项设计 - 智能眼镜展台与展墙',
+    title: { zh: '智能眼镜陈列设计', en: 'Smart Glasses Display Design' },
+    description: { zh: '创意专项设计 - 智能眼镜展台与展墙', en: 'Creative Special Project Design - Smart Glasses Display Stand and Display Wall' },
+    details: { zh: '智能眼镜陈列设计包括专业的展台和展墙系统。展台采用人性化的陈列设计,便于客户试戴和了解产品。展墙通过系统化的布局和照明设计,充分展现了眼镜产品的特色和品质。整个设计充分考虑了客户体验和产品展示效果。', en: 'The smart glasses display design includes professional display stand and display wall systems. The display stand adopts humanized display design, making it easy for customers to try on and understand products. The display wall showcases smart glasses features and quality through systematic layout and lighting design. The entire design fully considers customer experience and product display effectiveness.' },
     image: 'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/79e5aa96-8dae-4d0d-9124-31746c77ed36.jpg',
-    category: '创意专项',
-    tags: ['眼镜陈列', '创意设计', '展示系统'],
+    category: { zh: '创意专项', en: 'Creative Projects' },
+    tags: [
+      { zh: '眼镜陈列', en: 'Glasses Display' },
+      { zh: '创意设计', en: 'Creative Design' },
+      { zh: '展示系统', en: 'Display System' }
+    ],
+    highlights: [
+      { zh: '人性化陈列', en: 'Humanized display' },
+      { zh: '专业展示系统', en: 'Professional display system' },
+      { zh: '照明设计优化', en: 'Lighting design optimization' },
+      { zh: '客户体验完善', en: 'Comprehensive customer experience' }
+    ],
     isRepresentative: true, // 创意专项代表性案例
-    details: '智能眼镜陈列设计包括专业的展台和展墙系统。展台采用人性化的陈列设计，便于客户试戴和了解产品。展墙通过系统化的布局和照明设计，充分展现了眼镜产品的特色和品质。整个设计充分考虑了客户体验和产品展示效果。',
-    highlights: ['人性化陈列', '专业展示系统', '照明设计优化', '客户体验完善'],
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/79e5aa96-8dae-4d0d-9124-31746c77ed36.jpg',
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/099f7b8e-54dd-40ff-8d06-8575dd5daced.jpg',
