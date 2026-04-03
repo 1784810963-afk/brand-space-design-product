@@ -4,16 +4,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Project } from '@/data/projects';
+import { Locale } from '@/lib/i18n';
+import { getLocalizedValue } from '@/lib/i18n';
 
 interface ProjectCardProps {
   project: Project;
   index?: number;
   featured?: boolean; // 首页代表性项目的大卡片样式，使用图片背景+文字覆盖设计
+  locale: Locale;
+  viewDetailsText: string;
 }
 
-export default function ProjectCard({ project, index = 0, featured = false }: ProjectCardProps) {
+export default function ProjectCard({ project, index = 0, featured = false, locale, viewDetailsText }: ProjectCardProps) {
   return (
-    <Link href={`/projects/${project.id}`}>
+    <Link href={`/${locale}/projects/${project.id}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,14 +35,12 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
           transition={{ duration: 0.3 }}
         >
           {project.image ? (
-            <Image
+            // 使用 img 标签而不是 Next Image，避免 locale 路径问题
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              priority={index === 0}
-              quality={75}
+              alt={getLocalizedValue(project.title, locale) as unknown as string}
+              className="w-full h-full object-cover"
             />
           ) : (
             <div className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-50 flex items-center justify-center">
@@ -55,7 +57,7 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
           {/* 分类标签 */}
           <div className="flex items-center gap-2 mb-6">
             <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-              {project.category}
+              {getLocalizedValue(project.category, locale) as unknown as string}
             </span>
           </div>
 
@@ -65,24 +67,24 @@ export default function ProjectCard({ project, index = 0, featured = false }: Pr
             <h3 className={`font-bold text-white group-hover:text-blue-300 transition-colors ${
               featured ? 'text-xl md:text-2xl line-clamp-2' : 'text-sm line-clamp-2'
             }`}>
-              {project.title}
+              {getLocalizedValue(project.title, locale) as unknown as string}
             </h3>
 
             {/* 标签 - 关键词 */}
             <div className="flex flex-wrap gap-2">
-              {project.tags.slice(0, featured ? 3 : 2).map((tag) => (
+              {project.tags.slice(0, featured ? 3 : 2).map((tag, tagIndex) => (
                 <span
-                  key={tag}
+                  key={tagIndex}
                   className="px-2 py-1 bg-white/20 text-white rounded text-xs backdrop-blur-sm"
                 >
-                  {tag}
+                  {getLocalizedValue(tag, locale) as unknown as string}
                 </span>
               ))}
             </div>
 
             {/* 查看详情链接 */}
             <div className="pt-2 flex items-center gap-2 text-blue-300 font-medium text-sm group-hover:gap-3 transition-all">
-              查看详情
+              {viewDetailsText}
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </div>
