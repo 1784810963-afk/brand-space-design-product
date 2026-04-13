@@ -31,7 +31,6 @@ Thumbs.db
 *.7z
 *.zip
 *.tar.gz
-brand-space-web/public/standards/*.pdf
 
 # Local config
 .claude/

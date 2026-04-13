@@ -185,15 +185,8 @@ function feishuUrlToLocal(url: string): string {
   return url; // 如果没有对应的本地文件，返回原 URL
 }
 
-// 根据环境返回适当的图片URL
+// 将飞书内网URL转换为本地图片路径
 function processProjectImages(projects: Project[]): Project[] {
-  // 仅在开发环境使用本地图片
-  const isDevelopment = process.env.NEXT_PUBLIC_ENV === 'development';
-
-  if (!isDevelopment) {
-    return projects;
-  }
-
   return projects.map(project => ({
     ...project,
     image: feishuUrlToLocal(project.image),
