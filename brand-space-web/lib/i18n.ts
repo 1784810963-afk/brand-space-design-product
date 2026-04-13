@@ -40,7 +40,8 @@ export function getLocalizedArray(
 }
 
 export async function getDictionary(locale: Locale) {
-  return import(`@/dictionaries/${locale}.json`).then(
-    (module) => module.default
-  );
+  if (locale === 'en') {
+    return (await import('@/dictionaries/en.json')).default;
+  }
+  return (await import('@/dictionaries/zh.json')).default;
 }

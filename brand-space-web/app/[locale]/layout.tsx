@@ -15,7 +15,7 @@ export default async function LocaleLayout({
 
   return (
     <>
-      <Navbar locale={locale as Locale} dict={dict.nav} />
+      <Navbar locale={locale as Locale} dict={{ ...dict.nav, search: dict.search }} />
       <div className="pt-16">
         {children}
       </div>

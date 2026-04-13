@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "compress-images": "node scripts/compress-images.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.37.0",

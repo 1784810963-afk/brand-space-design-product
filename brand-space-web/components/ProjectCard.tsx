@@ -1,92 +1,73 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Project } from '@/data/projects';
-import { Locale } from '@/lib/i18n';
-import { getLocalizedValue } from '@/lib/i18n';
+import { Locale, getLocalizedValue } from '@/lib/i18n';
 
 interface ProjectCardProps {
   project: Project;
   index?: number;
-  featured?: boolean; // 首页代表性项目的大卡片样式，使用图片背景+文字覆盖设计
+  featured?: boolean;
   locale: Locale;
   viewDetailsText: string;
 }
 
-export default function ProjectCard({ project, index = 0, featured = false, locale, viewDetailsText }: ProjectCardProps) {
+export default function ProjectCard({ project, index = 0, locale, viewDetailsText }: ProjectCardProps) {
   return (
     <Link href={`/${locale}/projects/${project.id}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.1, duration: 0.5 }}
+        transition={{ delay: index * 0.08, duration: 0.5 }}
         viewport={{ once: true }}
-        whileHover={{ y: -5 }}
-        className={`group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-300 border border-gray-100 ${
-          featured ? 'min-h-96' : 'h-64'
-        }`}
+        whileHover={{ y: -4 }}
+        className="group bg-white rounded-2xl overflow-hidden border border-[#d2d2d7] hover:border-[#86868b] hover:shadow-xl transition-all duration-300"
       >
-        {/* 图片容器 - 用于 hover scale 动画 */}
-        <motion.div
-          className="absolute inset-0"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
+        {/* 图片区 - 在上方 */}
+        <div className="overflow-hidden aspect-video bg-[#f5f5f7]">
           {project.image ? (
-            // 使用 img 标签而不是 Next Image，避免 locale 路径问题
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={project.image}
               alt={getLocalizedValue(project.title, locale) as unknown as string}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-b from-gray-100 to-gray-50 flex items-center justify-center">
-              <div className="text-gray-300 text-4xl">📐</div>
-            </div>
+            <div className="w-full h-full bg-[#f5f5f7]" />
           )}
-        </motion.div>
+        </div>
 
-        {/* 渐变覆盖层 - 从下方透明渐变到黑色，保证文字可读性 */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+        {/* 文字区 - 在下方 */}
+        <div className="p-6">
+          {/* 分类 */}
+          <p className="text-xs font-medium tracking-widest uppercase text-[#86868b] mb-2">
+            {getLocalizedValue(project.category, locale) as unknown as string}
+          </p>
 
-        {/* 文字内容 - 叠加在图片和渐变层上方 */}
-        <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-8">
-          {/* 分类标签 */}
-          <div className="flex items-center gap-2 mb-6">
-            <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
-              {getLocalizedValue(project.category, locale) as unknown as string}
-            </span>
+          {/* 标题 */}
+          <h3 className="text-base font-semibold text-[#1d1d1f] mb-2 leading-snug group-hover:text-[#3a3a3c] transition-colors line-clamp-2">
+            {getLocalizedValue(project.title, locale) as unknown as string}
+          </h3>
+
+          {/* 标签 */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.tags.slice(0, 3).map((tag, tagIndex) => (
+              <span
+                key={tagIndex}
+                className="px-2.5 py-0.5 bg-[#f5f5f7] text-[#6e6e73] rounded-full text-xs"
+              >
+                {getLocalizedValue(tag, locale) as unknown as string}
+              </span>
+            ))}
           </div>
 
-          {/* 内容区域 - 靠下方 */}
-          <div className="flex flex-col space-y-3">
-            {/* 标题 */}
-            <h3 className={`font-bold text-white group-hover:text-blue-300 transition-colors ${
-              featured ? 'text-xl md:text-2xl line-clamp-2' : 'text-sm line-clamp-2'
-            }`}>
-              {getLocalizedValue(project.title, locale) as unknown as string}
-            </h3>
-
-            {/* 标签 - 关键词 */}
-            <div className="flex flex-wrap gap-2">
-              {project.tags.slice(0, featured ? 3 : 2).map((tag, tagIndex) => (
-                <span
-                  key={tagIndex}
-                  className="px-2 py-1 bg-white/20 text-white rounded text-xs backdrop-blur-sm"
-                >
-                  {getLocalizedValue(tag, locale) as unknown as string}
-                </span>
-              ))}
-            </div>
-
-            {/* 查看详情链接 */}
-            <div className="pt-2 flex items-center gap-2 text-blue-300 font-medium text-sm group-hover:gap-3 transition-all">
-              {viewDetailsText}
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
+          {/* 查看详情 */}
+          <div className="flex items-center gap-1.5 text-sm font-medium text-[#1d1d1f] group-hover:text-[#6e6e73] transition-colors">
+            <span>{viewDetailsText}</span>
+            <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </div>
         </div>
       </motion.div>

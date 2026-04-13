@@ -2,14 +2,24 @@
   "nav": {
     "home": "首页",
     "projects": "项目案例",
-    "standards": "设计标准",
-    "aiChat": "AI 助手"
+    "standards": "设计标准"
   },
   "projects": {
     "title": "项目案例库",
     "subtitle": "浏览我们的设计标准在各类项目中的实际应用",
     "allProjects": "全部项目",
-    "noResults": "暂无该分类的项目案例"
+    "allRegions": "全部地区",
+    "noResults": "暂无该分类的项目案例",
+    "searchPlaceholder": "搜索项目名称、地点、标签...",
+    "resultCount": "共 {count} 个项目",
+    "viewDetails": "查看详情"
+  },
+  "search": {
+    "placeholder": "搜索项目、设计标准...",
+    "projectsSection": "项目案例",
+    "standardsSection": "设计标准",
+    "noResults": "未找到相关内容",
+    "close": "关闭搜索"
   },
   "projectDetail": {
     "notFound": "项目未找到",
@@ -28,8 +38,10 @@
   "home": {
     "hero": {
       "title": "品牌空间设计平台",
-      "subtitle": "完整的设计标准体系展示",
-      "description": "探索我们的项目案例，了解系统化的设计标准，体验 AI 驱动的设计助手"
+      "subtitle": "品牌设计空间产品\n展示平台",
+      "description": "探索我们的项目案例，了解系统化的设计标准",
+      "browseProjects": "浏览项目案例",
+      "viewStandards": "查看设计标准"
     },
     "projects": {
       "title": "代表性项目案例",
@@ -39,31 +51,20 @@
     },
     "standards": {
       "title": "完整的设计标准体系",
-      "subtitle": "9 大模块组成的系统性设计标准，保证项目的一致性和规范性",
+      "subtitle": "2 大核心标准体系，涵盖零售与综合中心的全方位设计规范",
       "viewAll": "查看完整标准 →",
-      "itemsCount": "个主要内容"
-    },
-    "aiAssistant": {
-      "title": "AI 设计助手",
-      "subtitle": "智能化的设计咨询和案例获取工具，帮助您快速了解和应用设计标准",
-      "viewAll": "开启 AI 助手 →",
-      "features": {
-        "trends": {
-          "title": "设计趋势分析",
-          "description": "分析最新的设计趋势和市场动向，为您的项目提供参考"
-        },
-        "consultation": {
-          "title": "设计标准咨询",
-          "description": "快速查询和解答关于设计标准的各种问题"
-        },
-        "cases": {
-          "title": "案例获取",
-          "description": "智能推荐相关的成功案例和最佳实践"
-        }
-      }
+      "itemsCount": "个主要内容",
+      "downloadPdf": "下载 PDF 文档",
+      "moreItems": "项更多内容"
     },
     "footer": {
       "copyright": "© 2026 品牌空间设计平台. 所有权利保留。"
     }
+  },
+  "standards": {
+    "title": "设计标准体系",
+    "subtitle": "SI3.0 设计标准，涵盖零售与综合中心的完整设计规范",
+    "mainContent": "主要内容",
+    "downloadPdf": "下载完整 PDF 文档"
   }
 }

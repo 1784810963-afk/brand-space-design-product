@@ -14,6 +14,7 @@ export interface Project {
 
   // Single-language fields (no translation needed)
   location?: string;
+  region?: LocalizedString;  // 城市/地区，用于筛选
   area?: string;
   buildingTime?: string;
   image: string;
@@ -222,6 +223,7 @@ const rawProjects: Project[] = [
       { zh: '高端定位', en: 'Premium positioning' }
     ],
     location: '北京市朝阳区建国路89号院华贸商业街11号楼L03号',
+    region: { zh: '北京', en: 'Beijing' },
     area: '777㎡',
     buildingTime: '2024/01/27',
     isRepresentative: true,
@@ -260,6 +262,7 @@ const rawProjects: Project[] = [
       { zh: '灯光设计专业', en: 'Professional lighting design' }
     ],
     location: '上海市浦东新区东育路345号1层07、08单元',
+    region: { zh: '上海', en: 'Shanghai' },
     area: '528㎡',
     isRepresentative: true, // 零售空间代表性案例
     images: [
@@ -287,6 +290,7 @@ const rawProjects: Project[] = [
       { zh: '购物体验优化', en: 'Shopping experience optimization' }
     ],
     location: '上海市长宁区长宁路1191号长宁来福士西区1楼北门',
+    region: { zh: '上海', en: 'Shanghai' },
     area: '392㎡',
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/714958ee-70d1-4d4a-9191-dbc30820c492.jpg',
@@ -313,6 +317,7 @@ const rawProjects: Project[] = [
       { zh: '品牌定位', en: 'Brand positioning' }
     ],
     location: '北京市顺义区安泰大街9号院中粮·祥云小镇4号楼1层',
+    region: { zh: '北京', en: 'Beijing' },
     area: '1114㎡',
     buildingTime: '2024/10/31',
     images: [
@@ -342,6 +347,7 @@ const rawProjects: Project[] = [
       { zh: '极致体验', en: 'Ultimate experience' }
     ],
     location: '北京市朝阳区来广营乡顾家庄桥北293米路西',
+    region: { zh: '北京', en: 'Beijing' },
     area: '2106㎡',
     buildingTime: '2024/05/28',
     images: [
@@ -371,6 +377,7 @@ const rawProjects: Project[] = [
       { zh: '客户体验提升', en: 'Customer experience enhancement' }
     ],
     location: '四川省成都市武侯区益州大道中段1999号银泰城2号门',
+    region: { zh: '成都', en: 'Chengdu' },
     area: '260㎡',
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/5ec81e5c-243c-4825-92b2-2775425a4bbe.jpg',
@@ -397,6 +404,7 @@ const rawProjects: Project[] = [
       { zh: '购物环境优化', en: 'Shopping environment optimization' }
     ],
     location: '浙江省宁波市江北区江北大道395号193幢1-3',
+    region: { zh: '宁波', en: 'Ningbo' },
     area: '926㎡',
     images: [
       'https://cfe-doc-backend.inner.chj.cloud/api/v1/analysis/file?file_key=feishu-service/c08f2e43-9d7c-481c-8cd7-2d81990b6c03.jpg',
@@ -424,6 +432,7 @@ const rawProjects: Project[] = [
       { zh: '标识系统完善', en: 'Comprehensive wayfinding system' }
     ],
     location: '北京市',
+    region: { zh: '北京', en: 'Beijing' },
     area: '833㎡',
     isRepresentative: true, // 配套空间代表性案例
     images: [
@@ -452,6 +461,7 @@ const rawProjects: Project[] = [
       { zh: '产品展示优化', en: 'Product display optimization' }
     ],
     location: '上海国际车展',
+    region: { zh: '上海', en: 'Shanghai' },
     area: '1620㎡',
     buildingTime: '现场搭建7天',
     isRepresentative: true, // 活动空间代表性案例
@@ -480,6 +490,7 @@ const rawProjects: Project[] = [
       { zh: '品牌展现专业', en: 'Professional brand presentation' }
     ],
     location: '首站：北京-蓝色港湾',
+    region: { zh: '多城市', en: 'Multi-city' },
     area: '150㎡',
     buildingTime: '2025/05/16',
     images: [
@@ -518,6 +529,7 @@ const rawProjects: Project[] = [
       { zh: '工艺精细', en: 'Fine craftsmanship' }
     ],
     location: '阿那亚',
+    region: { zh: '阿那亚', en: 'Aranya' },
     area: '100㎡',
     buildingTime: '制作15天，现场搭建4天',
     images: [

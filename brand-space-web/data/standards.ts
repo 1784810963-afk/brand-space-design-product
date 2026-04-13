@@ -1,127 +1,63 @@
+import { LocalizedString } from '@/lib/i18n';
+
 // 设计标准数据类型定义
 export interface Standard {
   id: string;
   number: number;
-  title: string;
-  description: string;
-  content: string[];
+  title: LocalizedString;
+  description: LocalizedString;
+  content: LocalizedString[];
+  pdfUrl: string;
+  icon?: string;
   images: string[];
 }
 
-// 9 大设计标准
+// SI3.0 设计标准体系
 export const standards: Standard[] = [
   {
-    id: 'design-principle',
+    id: 'si3-retail-center',
     number: 1,
-    title: '设计总则',
-    description: '品牌空间设计的核心原则和指导方向',
+    title: {
+      zh: 'SI3.0零售中心',
+      en: 'SI3.0 Retail Center'
+    },
+    description: {
+      zh: '针对零售中心的完整设计标准体系，涵盖选址、外观、室内设计等全方位规范',
+      en: 'Complete design standards system for retail centers, covering site selection, appearance, interior design and comprehensive specifications'
+    },
     content: [
-      '品牌策略',
-      '品牌定位',
-      '品牌色彩',
-      '色彩与材质'
+      { zh: '场地选址与规划标准', en: 'Site Selection and Planning Standards' },
+      { zh: '外观设计规范', en: 'Appearance Design Standards' },
+      { zh: '室内空间设计标准', en: 'Interior Space Design Standards' },
+      { zh: '照明系统设计规范', en: 'Lighting System Design Standards' },
+      { zh: '标识导向系统', en: 'Signage and Wayfinding System' },
+      { zh: '材料与节点图集', en: 'Materials and Detail Drawings' }
     ],
+    pdfUrl: '/standards/SI3.0-Retail-Center.pdf',
+    icon: '🏬',
     images: []
   },
   {
-    id: 'site-setting',
+    id: 'si3-comprehensive-center',
     number: 2,
-    title: '场地设置原则',
-    description: '空间场地的基本规划和设置规范',
+    title: {
+      zh: 'SI3.0综合中心',
+      en: 'SI3.0 Comprehensive Center'
+    },
+    description: {
+      zh: '针对综合中心的完整设计标准体系，包含多功能空间设计与系统化管理规范',
+      en: 'Complete design standards system for comprehensive centers, including multi-functional space design and systematic management specifications'
+    },
     content: [
-      '场地类型规划',
-      '场地改造选择',
-      '场地功能规划'
+      { zh: '综合功能分区规划', en: 'Comprehensive Functional Zoning' },
+      { zh: '多业态空间设计', en: 'Multi-format Space Design' },
+      { zh: '公共区域设计标准', en: 'Public Area Design Standards' },
+      { zh: '辅助设施系统规范', en: 'Auxiliary Facility System Standards' },
+      { zh: '软装与家具配置', en: 'Soft Furnishing and Furniture Configuration' },
+      { zh: '运营管理规范', en: 'Operation Management Standards' }
     ],
-    images: []
-  },
-  {
-    id: 'external-design',
-    number: 3,
-    title: '外观设计原则',
-    description: '建筑外观和品牌形象展示规范',
-    content: [
-      '外观设计规范',
-      '外观识别细节'
-    ],
-    images: []
-  },
-  {
-    id: 'interior-design',
-    number: 4,
-    title: '室内设计原则',
-    description: '室内空间的设计和布置标准',
-    content: [
-      '设计思路',
-      '空间中心',
-      '交付中心',
-      '服务中心',
-      '公用部分',
-      '辅助系统设施'
-    ],
-    images: []
-  },
-  {
-    id: 'wall-furniture',
-    number: 5,
-    title: '墙面模块 & 家具 & 软装系统原则',
-    description: '墙面、家具和软装的规范和应用',
-    content: [
-      '墙体规则',
-      '家具原则',
-      '软装品品'
-    ],
-    images: []
-  },
-  {
-    id: 'lighting-design',
-    number: 6,
-    title: '照明设计原则',
-    description: '照明系统的设计和应用规范',
-    content: [
-      '外立面照明',
-      '候车区照明',
-      '室内照明'
-    ],
-    images: []
-  },
-  {
-    id: 'signage-system',
-    number: 7,
-    title: '标识系统原则',
-    description: '导向和标识的统一规范',
-    content: [
-      '标识级别',
-      '标识细节'
-    ],
-    images: []
-  },
-  {
-    id: 'material-list',
-    number: 8,
-    title: '材料清单',
-    description: '推荐使用的材料清单',
-    content: [
-      '主体材料',
-      '五金清单'
-    ],
-    images: []
-  },
-  {
-    id: 'standard-nodes',
-    number: 9,
-    title: '标准节点图集',
-    description: '标准施工节点详图',
-    content: [
-      '清单目录',
-      '天花节点',
-      '墙面节点',
-      '地面节点',
-      '外墙节点',
-      '儿童区节点',
-      '楼梯节点',
-      '门节点'
-    ],
+    pdfUrl: '/standards/SI3.0-Comprehensive-Center.pdf',
+    icon: '🏢',
     images: []
   }
 ];

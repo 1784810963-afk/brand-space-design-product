@@ -2,14 +2,24 @@
   "nav": {
     "home": "Home",
     "projects": "Projects",
-    "standards": "Standards",
-    "aiChat": "AI Assistant"
+    "standards": "Standards"
   },
   "projects": {
     "title": "Project Portfolio",
     "subtitle": "Browse our design standards applied in various projects",
     "allProjects": "All Projects",
-    "noResults": "No projects in this category"
+    "allRegions": "All Regions",
+    "noResults": "No projects in this category",
+    "searchPlaceholder": "Search by name, location, tags...",
+    "resultCount": "{count} projects",
+    "viewDetails": "View Details"
+  },
+  "search": {
+    "placeholder": "Search projects, design standards...",
+    "projectsSection": "Projects",
+    "standardsSection": "Design Standards",
+    "noResults": "No results found",
+    "close": "Close"
   },
   "projectDetail": {
     "notFound": "Project Not Found",
@@ -29,7 +39,9 @@
     "hero": {
       "title": "Brand Space Design Platform",
       "subtitle": "Complete Design Standards System",
-      "description": "Explore our project portfolio, understand systematic design standards, and experience AI-powered design assistance"
+      "description": "Explore our project portfolio, understand systematic design standards",
+      "browseProjects": "Browse Projects",
+      "viewStandards": "View Standards"
     },
     "projects": {
       "title": "Representative Projects",
@@ -39,31 +51,20 @@
     },
     "standards": {
       "title": "Complete Design Standards System",
-      "subtitle": "9 systematic design standard modules ensuring project consistency and compliance",
+      "subtitle": "2 core standard systems for retail and comprehensive centers",
       "viewAll": "View Complete Standards →",
-      "itemsCount": "key items"
-    },
-    "aiAssistant": {
-      "title": "AI Design Assistant",
-      "subtitle": "Intelligent design consultation and case retrieval tools to help you quickly understand and apply design standards",
-      "viewAll": "Launch AI Assistant →",
-      "features": {
-        "trends": {
-          "title": "Design Trends Analysis",
-          "description": "Analyze the latest design trends and market dynamics to provide references for your projects"
-        },
-        "consultation": {
-          "title": "Design Standards Consultation",
-          "description": "Quickly query and answer various questions about design standards"
-        },
-        "cases": {
-          "title": "Case Retrieval",
-          "description": "Intelligently recommend relevant successful cases and best practices"
-        }
-      }
+      "itemsCount": "key items",
+      "downloadPdf": "Download PDF",
+      "moreItems": "more items"
     },
     "footer": {
       "copyright": "© 2026 Brand Space Design Platform. All rights reserved."
     }
+  },
+  "standards": {
+    "title": "Design Standards System",
+    "subtitle": "SI3.0 Design Standards for retail and comprehensive centers",
+    "mainContent": "Main Content",
+    "downloadPdf": "Download Complete PDF Document"
   }
 }

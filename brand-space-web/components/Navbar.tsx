@@ -3,7 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
+import SearchModal from './SearchModal';
 import { Locale } from '@/lib/i18n';
 
 interface NavbarProps {
@@ -12,90 +14,108 @@ interface NavbarProps {
     home: string;
     projects: string;
     standards: string;
-    aiChat: string;
+    search: {
+      placeholder: string;
+      projectsSection: string;
+      standardsSection: string;
+      noResults: string;
+      close: string;
+    };
   };
 }
 
 export default function Navbar({ locale, dict }: NavbarProps) {
   const pathname = usePathname();
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const navItems = [
     { label: dict.home, href: `/${locale}` },
     { label: dict.projects, href: `/${locale}/projects` },
-    { label: dict.standards, href: `/${locale}/standards` },
-    { label: dict.aiChat, href: `/${locale}/ai-chat` }
+    { label: dict.standards, href: `/${locale}/standards` }
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-200/50 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <img
-              src="/logo.png"
-              alt="品牌标识"
-              width={48}
-              height={48}
-              className="flex-shrink-0"
-            />
-          </Link>
+    <>
+      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-xl border-b border-[#d2d2d7]/60 z-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14">
+            {/* Logo */}
+            <Link href={`/${locale}`} className="flex items-center hover:opacity-75 transition-opacity">
+              <img
+                src="/logo.png"
+                alt="Brand Space"
+                width={36}
+                height={36}
+                className="flex-shrink-0"
+              />
+            </Link>
 
-          {/* 导航菜单 */}
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link key={item.href} href={item.href}>
-                  <motion.div
-                    className={`px-4 py-2 rounded-md relative ${
-                      isActive ? 'text-blue-600' : 'text-gray-700 hover:text-gray-900'
+            {/* 导航菜单 */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`relative text-sm font-medium transition-colors ${
+                      isActive ? 'text-[#1d1d1f]' : 'text-[#6e6e73] hover:text-[#1d1d1f]'
                     }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
                     {isActive && (
                       <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
+                        className="absolute -bottom-[1px] left-0 right-0 h-[1.5px] bg-[#1d1d1f]"
                         layoutId="navbar-indicator"
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                       />
                     )}
-                  </motion.div>
-                </Link>
-              );
-            })}
-            <div className="ml-4">
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* 右侧工具区 */}
+            <div className="hidden md:flex items-center gap-6">
+              <motion.button
+                whileHover={{ opacity: 0.7 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setSearchOpen(true)}
+                className="text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+                aria-label="搜索"
+              >
+                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </motion.button>
+              <LanguageSwitcher currentLocale={locale} />
+            </div>
+
+            {/* 移动端 */}
+            <div className="md:hidden flex items-center gap-4">
+              <motion.button
+                whileHover={{ opacity: 0.7 }}
+                onClick={() => setSearchOpen(true)}
+                className="text-[#6e6e73]"
+                aria-label="搜索"
+              >
+                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </motion.button>
               <LanguageSwitcher currentLocale={locale} />
             </div>
           </div>
-
-          {/* 移动端菜单按钮 */}
-          <div className="md:hidden flex items-center gap-2">
-            <LanguageSwitcher currentLocale={locale} />
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 hover:bg-gray-100 rounded-md"
-            >
-              <svg
-                className="w-6 h-6 text-gray-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </motion.div>
-          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {searchOpen && (
+        <SearchModal
+          locale={locale}
+          dict={dict.search}
+          onClose={() => setSearchOpen(false)}
+        />
+      )}
+    </>
   );
 }
