@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Locale } from '@/lib/i18n';
 
@@ -10,7 +10,6 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
   const pathname = usePathname();
-  const router = useRouter();
 
   const switchLanguage = () => {
     const newLocale = currentLocale === 'zh' ? 'en' : 'zh';
@@ -18,7 +17,8 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
     // Replace current locale in pathname
     const newPathname = pathname.replace(new RegExp(`^/${currentLocale}(/|$)`), `/${newLocale}$1`);
 
-    router.push(newPathname);
+    // Use hard navigation to ensure full re-render with new locale
+    window.location.href = newPathname;
   };
 
   return (
