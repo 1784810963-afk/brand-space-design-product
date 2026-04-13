@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Project } from '@/data/projects';
 import { Locale, getLocalizedValue } from '@/lib/i18n';
@@ -25,13 +26,14 @@ export default function ProjectCard({ project, index = 0, locale, viewDetailsTex
         className="group bg-white rounded-2xl overflow-hidden border border-[#d2d2d7] hover:border-[#86868b] hover:shadow-xl transition-all duration-300"
       >
         {/* 图片区 - 在上方 */}
-        <div className="overflow-hidden aspect-video bg-[#f5f5f7]">
+        <div className="overflow-hidden aspect-video bg-[#f5f5f7] relative">
           {project.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={project.image}
               alt={getLocalizedValue(project.title, locale) as unknown as string}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           ) : (
             <div className="w-full h-full bg-[#f5f5f7]" />
