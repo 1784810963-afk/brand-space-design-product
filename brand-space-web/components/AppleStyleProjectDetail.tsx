@@ -96,7 +96,7 @@ export default function AppleStyleProjectDetail({ project, locale, dict }: Apple
         >
           <Image
             src={allImages[0] || project.image}
-            alt={getLocalizedValue<string>(project.title, locale)}
+            alt={getLocalizedValue(project.title, locale)}
             fill
             className="object-cover"
             priority
@@ -113,11 +113,11 @@ export default function AppleStyleProjectDetail({ project, locale, dict }: Apple
           className="relative z-10 text-center px-4 max-w-4xl mx-auto"
         >
           <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
-            {getLocalizedValue<string>(project.title, locale)}
+            {getLocalizedValue(project.title, locale)}
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-            {getLocalizedValue<string>(project.description, locale)}
+            {getLocalizedValue(project.description, locale)}
           </p>
         </motion.div>
 
@@ -221,7 +221,7 @@ export default function AppleStyleProjectDetail({ project, locale, dict }: Apple
                   {dict.solution}
                 </h3>
                 <div className="space-y-6">
-                  {getLocalizedValue<string>(project.details, locale).split('\n\n').map((paragraph, index) => (
+                  {getLocalizedValue(project.details, locale).split('\n\n').map((paragraph, index) => (
                     <p key={index} className="text-lg text-slate-600 leading-relaxed">
                       {paragraph}
                     </p>
@@ -349,7 +349,7 @@ export default function AppleStyleProjectDetail({ project, locale, dict }: Apple
           >
             <Image
               src={allImages[lightboxIndex]}
-              alt={`${getLocalizedValue<string>(project.title, locale)} - ${dict.image} ${lightboxIndex + 1}`}
+              alt={`${getLocalizedValue(project.title, locale)} - ${dict.image} ${lightboxIndex + 1}`}
               width={1920}
               height={1080}
               className="w-full h-auto max-h-[90vh] object-contain"

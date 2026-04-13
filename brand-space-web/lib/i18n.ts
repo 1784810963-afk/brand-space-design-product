@@ -21,14 +21,12 @@ export function isLocalizedString(value: any): value is LocalizedString {
   );
 }
 
-export function getLocalizedValue<T = string>(
-  value: T | LocalizedString,
-  locale: Locale
-): T {
+export function getLocalizedValue(value: LocalizedString, locale: Locale): string;
+export function getLocalizedValue<T>(value: T, locale: Locale): T;
+export function getLocalizedValue<T>(value: T | LocalizedString, locale: Locale): T | string {
   if (isLocalizedString(value)) {
-    return value[locale] as unknown as T;
+    return value[locale];
   }
-  // Backward compatibility: if plain string, return as-is
   return value as T;
 }
 
